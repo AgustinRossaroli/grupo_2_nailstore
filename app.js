@@ -1,4 +1,6 @@
 const express = require("express");
+const mainRouter = require("./routers/mainRouters")
+
 const app = express();
 
 const path = require("path");
@@ -8,6 +10,4 @@ app.use(express.static(pathpublic));
 
 app.listen(3000, () => console.log("Ejecutado"));
 
-app.get("/registro.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/registro.html"))
-})
+app.use(mainRouter)
