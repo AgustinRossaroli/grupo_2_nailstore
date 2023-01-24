@@ -29,9 +29,32 @@
 .search-icon{
     padding: 5px;
 }
+.logo-box{
+    width: 25%;
+}
 .logo{
-    font-family: "Roboto", sans-serif;
+    width: 100%;
+    font-family: 'Aboreto', cursive;
     font-size: 40px;
+}
+img{
+    width: 100%;
+    vertical-align: bottom;
+}
+.list-box{
+    width: 30%;
+}
+.list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    font-family: 'Aboreto', cursive;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 .cart{
     display: flex;
@@ -39,7 +62,6 @@
 }
 .cart-icon{
     border: solid 1px;
-    border-radius: 50%;
     padding: 5px;
 }
 .main{
@@ -59,12 +81,13 @@
     justify-content: space-around;
 }
 .product-box{
+    border: solid 1px;
     display: flex;
-    margin: 45px;
-    width: 25%;
+    flex-direction: column;
+    margin: 30px;
+    width: 29%;
 }
+
 .product-image{
-    width: 50%;
-    color: aliceblue;
-    background-color: black;
+    width: 100%;
 }
