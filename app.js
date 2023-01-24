@@ -1,4 +1,5 @@
 const express = require("express");
+
 const mainRouter = require("./routers/mainRouters")
 
 const app = express();
@@ -11,3 +12,7 @@ app.use(express.static(pathpublic));
 app.listen(3000, () => console.log("Ejecutado"));
 
 app.use(mainRouter)
+
+
+
+
