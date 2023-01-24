@@ -8,7 +8,5 @@ app.use(express.static(pathpublic));
 
 app.listen(3000, () => console.log("Ejecutado"));
 
-app.get("/registro.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/registro.html"))
-});
+
 
