@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.nav-bar-box{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px black;
+    justify-content: space-around;
+    align-items: center;
+}
+.search-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 1px;
+    height: fit-content;
+}
+.text-search-box{
+    padding: 5px;
+}
+#text-search{
+    border: none;   
+}
+#text-search:focus{
+    outline: none;
+}
+.search-icon{
+    padding: 5px;
+}
+.logo{
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+}
+.cart{
+    display: flex;
+    align-items: center;
+}
+.cart-icon{
+    border: solid 1px;
+    border-radius: 50%;
+    padding: 5px;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eaeaea;
+}
+.formBar {
+    width: 90%;
+    height: 33px;
+    max-width: 380px;
+    margin-bottom: 30px;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-top: 8px;
+    padding: 30px 20px;
+    position: relative;
+    left: 30px;
+}
+.formItem label {
+    letter-spacing: 2.3px;
+    position: relative;
+    left: 30px;
+}
+input::placeholder {
+    font-size: medium;
+    padding: 11px;
+    opacity: 0.7;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 13vh;
+}
+h1 {
+    font-size: 47px;
+    margin-bottom: 2vh;
+}
+h3 {
+    font-weight: normal;
+    margin-bottom: 4vh;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+#boton {
+    color: white;
+    background-color: black;
+    font-size: 17px;
+    font-weight: bold;
+    height: 5.5vh;
+    width: 20vh;
+    position: relative;
+    left: 100px;
+}
