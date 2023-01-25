@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.nav-bar-box{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px black;
+    justify-content: space-around;
+    align-items: center;
+}
+.search-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 1px;
+    height: fit-content;
+}
+.text-search-box{
+    padding: 5px;
+}
+#text-search{
+    border: none;   
+}
+#text-search:focus{
+    outline: none;
+}
+.search-icon{
+    padding: 5px;
+}
+.logo{
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+}
+.cart{
+    display: flex;
+    align-items: center;
+}
+.cart-icon{
+    border: solid 1px;
+    border-radius: 50%;
+    padding: 5px;
+}
+body {
+    background-color: #eaeaea;
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.elementos {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 10%;
+}
+.resumen {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 10%;
+}
+h2 {
+    font-size: 27px;
+    font-weight: 100;
+}
+.producto {
+    display: flex;
+    margin: 20px 0px 20px 0px;
+}
+.descripcion {
+    margin-left: 15px;
+}
+.nombre {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 4px;
+}
+.precio {
+    font-size: 22px;
+    margin-top: 30px;
+}
+img {
+    border: 2px black solid;
+}
+ul li {
+    font-size: 14px;
+    opacity: 0.5;
+    margin: 30px;
+    margin-left: 0px;
+    list-style: none;
+}
+.total {
+    display: flex;
+}
+#total {
+    font-size: x-large;
+    margin: 10px;
+    margin-left: 0px;
+}
+#precioTotal {
+    font-size: x-large;
+    margin: 10px;
+}
+.irAPagar {
+    display: flex;
+}
+.metodoPago {
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 25px;
+    margin-right: 50px;
+    opacity: 0.2;
+}
+.metodospago {
+    font-size: 14px;
+    opacity: 0.5;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
