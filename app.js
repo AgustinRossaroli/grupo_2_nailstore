@@ -15,9 +15,7 @@ const path = require("path");
 const pathpublic = path.resolve(__dirname, "./public");
 app.use(express.static(pathpublic));
 
-//MAIN ROUTER 
-const mainRouter = require("./routers/mainRouters");
-app.use(mainRouter);
+app.listen(3000, () => console.log("Ejecutado"));
 
 //INICIAR SESIÓN}
 const iSesionRouter = require("./routers/iSesionRouter");
