@@ -97,3 +97,44 @@ a {
     position: relative;
     left: 100px;
 }
+
+.Logo{
+        height: 100px;
+        width: 100px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;
+    }
+.box-main{
+    
+    margin-top: 10px;
+    position: relative;
+}
+
+h1 {
+    color: #f433c7;
+    font-family:'Lucida Sans';
+ font-size: 20px;
+ font-weight: bold;
+ font-style: italic;
+text-decoration:underline;
+text-align:center;
+}
+
+.container{
+    width: 100%;
+    max-width: 200px;
+    height: 130px;
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    margin: auto;
+}
+.baner{
+    width: 75vw;
+    height:25vw;
+    margin: auto;
+    display: block;
+}
+
