@@ -8,31 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%- include('../partials/head.ejs') %>
     <title>Carrito De Compras</title>
 </head>
 <body>
-    <header>
-        <div class="nav-bar-box">
-            <div class="logo-box">
-                <div class="logo">
-                    LOGO
-                </div>
-            </div>
-            <div class="search-box">
-                <div class="text-search-box">
-                    <input type="text" name="search" id="text-search" placeholder="Buscar">
-                </div>
-                <div class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div>
-            <div class="cart">
-                <div class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-            </div>
-        </div>
-    </header>
+    <%- include('../partials/header.ejs') %>
     <main>
         <section class="elementos">
             <h2>ELEMENTOS EN TU CARRITO DE COMPRAS</h2>
@@ -60,7 +40,7 @@
         </section>
         <section class="resumen">
             <h2>RESUMEN DE TU COMPRA</h2>
-            <ul>
+            <ul class="unorderList">
                 <li>NOMBRE DEL PRODUCTO $0000</li>
                 <li>NOMBRE DEL PRODUCTO $0000</li>
                 <li>NOMBRE DEL PRODUCTO $0000</li>

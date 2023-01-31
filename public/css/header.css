@@ -3,8 +3,8 @@
     margin: 0px;
     padding: 0px;
 }
-body {
-    background-color: #eaeaea;
+header {
+    background-color: white;
 }
 .nav-bar-box{
     display: flex;
@@ -66,31 +66,4 @@ a{
 .cart-icon{
     border: solid 1px;
     padding: 5px;
-}
-.main{
-    font-family: "Roboto", sans-serif;;
-}
-.product-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.title-views{
-    padding: 5px;
-}
-.product-section-personal{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.product-box{
-    border: solid 1px;
-    display: flex;
-    flex-direction: column;
-    margin: 30px;
-    width: 29%;
-}
-
-.product-image{
-    width: 100%;
 }

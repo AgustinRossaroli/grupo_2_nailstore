@@ -3,45 +3,6 @@
     margin: 0px;
     padding: 0px;
 }
-.nav-bar-box{
-    display: flex;
-    flex-direction: row;
-    border: solid 1px black;
-    justify-content: space-around;
-    align-items: center;
-}
-.search-box{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: solid 1px;
-    height: fit-content;
-}
-.text-search-box{
-    padding: 5px;
-}
-#text-search{
-    border: none;   
-}
-#text-search:focus{
-    outline: none;
-}
-.search-icon{
-    padding: 5px;
-}
-.logo{
-    font-family: "Roboto", sans-serif;
-    font-size: 40px;
-}
-.cart{
-    display: flex;
-    align-items: center;
-}
-.cart-icon{
-    border: solid 1px;
-    border-radius: 50%;
-    padding: 5px;
-}
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #eaeaea;
@@ -63,7 +24,7 @@ body {
     position: relative;
     left: 30px;
 }
-input::placeholder {
+.formBar::placeholder {
     font-size: medium;
     padding: 11px;
     opacity: 0.7;
@@ -83,10 +44,6 @@ h3 {
     font-weight: normal;
     margin-bottom: 4vh;
 }
-a {
-    color: black;
-    text-decoration: none;
-}
 #boton {
     color: white;
     background-color: black;
@@ -97,44 +54,3 @@ a {
     position: relative;
     left: 100px;
 }
-
-.Logo{
-        height: 100px;
-        width: 100px;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        border-radius: 50%;
-        background-size: 100% auto;
-    }
-.box-main{
-    
-    margin-top: 10px;
-    position: relative;
-}
-
-h1 {
-    color: #f433c7;
-    font-family:'Lucida Sans';
- font-size: 20px;
- font-weight: bold;
- font-style: italic;
-text-decoration:underline;
-text-align:center;
-}
-
-.container{
-    width: 100%;
-    max-width: 200px;
-    height: 130px;
-    display: flex;
-    flex-wrap:wrap ;
-    justify-content: center;
-    margin: auto;
-}
-.baner{
-    width: 75vw;
-    height:25vw;
-    margin: auto;
-    display: block;
-}
-
