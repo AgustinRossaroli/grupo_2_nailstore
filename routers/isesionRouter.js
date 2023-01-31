@@ -4,6 +4,6 @@ const {iniciarSesion} = require("../controllers/iSesionController");
 
 const iSesionRouter = express.Router(); 
 
-iSesionRouter.get("/iniciar%20sesion", iniciarSesion);
+iSesionRouter.get("/iniciarSesion", iniciarSesion);
 
 module.exports = iSesionRouter;

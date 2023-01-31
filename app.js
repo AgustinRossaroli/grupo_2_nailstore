@@ -3,7 +3,7 @@ const express = require("express");
 
 const app = express();
 
-app.listen(3000, () => console.log("Ejecutado"));
+app.listen(3001, () => console.log("Ejecutado"));
 
 //EJS 
 app.set('view engine','ejs');
@@ -24,3 +24,15 @@ app.use(iSesionRouter);
 //CARRITO
 const carritoRouter = require("./routers/carritoRouter");
 app.use(carritoRouter);
+
+//MAIN
+const mainRouter = require("./routers/mainRouters");
+app.use(mainRouter);
+
+// //PRODUCT DETAIL
+// const productRouter = require("./routers/productRouter");
+// app.use(productRouter);
+
+//LOGIN 
+const loginRouter = require("./routers/loginRouter");
+app.use(loginRouter);
