@@ -4,8 +4,8 @@
     padding: 0px;
 }
 body {
-    background-color: #eaeaea;
-    font-family: 'Roboto', sans-serif;
+    background-color: #EEEEEE;
+    font-family: "Roboto", sans-serif;
 }
 main {
     display: flex;
@@ -17,6 +17,7 @@ main {
     flex-direction: column;
     width: 40%;
     margin-left: 10%;
+    border-right: solid 1px;
 }
 .resumen {
     display: flex;

@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/inicioSesion.css">
     <%- include('../partials/head.ejs') %>
-    <title>Registro</title>
+        <title>Registrate</title>
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
-    <main>
-        <h1>NAILS STORE</h1>
-        <h3>¿Ya estás registrado? <a href="">Ingresá aquí</a></h3>
-        <form action="/crearUser" method="post" class="form">
-            <div class="formItem">
-                <label for="Nombre">NOMBRE</label>
-                <input class="formBar" type="text" name="Nombre" placeholder="Nombre y apellido">
-            </div>
-            <div class="formItem">
-                <label for="email">EMAIL</label>
-                <input class="formBar" type="email" name="email" placeholder="hello@gmail.com">
-            </div>
-            <div class="formItem">
-                <label for="password">CONTRASEÑA</label>
-                <input class="formBar" type="password" name="password" placeholder="Contraseña">
-            </div>
-            <div class="formItem">
-                <label>FECHA DE NACIMIENTO</label>
-                <input class="formBar" type="date" name="nacimiento">
-            </div>
-            <button id="boton" type="submit">CREAR CUENTA</button>
-        </form>
-    </main>
+        <main>
+            <h1>NAILS STORE</h1>
+            <h3>¿Ya estás registrado? <a href="">Ingresá aquí</a></h3>
+            <form action="/crearUser" method="post" class="form">
+                <div class="formItem">
+                    <label for="Nombre">NOMBRE</label>
+                    <input class="formBar" type="text" name="Nombre" placeholder="Nombre y apellido">
+                </div>
+                <div class="formItem">
+                    <label for="email">EMAIL</label>
+                    <input class="formBar" type="email" name="email" placeholder="hello@gmail.com">
+                </div>
+                <div class="formItem">
+                    <label for="password">CONTRASEÑA</label>
+                    <input class="formBar" type="password" name="password" placeholder="Contraseña">
+                </div>
+                <div class="formItem">
+                    <label>FECHA DE NACIMIENTO</label>
+                    <input class="formBar" type="date" name="nacimiento">
+                </div>
+                <button id="boton" type="submit">CREAR CUENTA</button>
+            </form>
+        </main>
+        <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>
