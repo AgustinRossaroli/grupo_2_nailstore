@@ -13,12 +13,14 @@ footer {
 .footer {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin: 18px;
 }
 .aviso {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .avisoItem {
     margin: 5px;
@@ -36,4 +38,7 @@ p {
 }
 h4 {
     font-size: large;
+}
+.copyright {
+    opacity: 0.4;
 }
