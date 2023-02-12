@@ -10,6 +10,9 @@ app.set('view engine','ejs');
 //configura la carpeta estatica del proyecto
 app.use(express.static('public'));
 
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+
 //PATH
 const path = require("path");
 const pathpublic = path.resolve(__dirname, "./public");
@@ -30,9 +33,17 @@ const mainRouter = require("./routers/mainRouters");
 app.use(mainRouter);
 
 // //PRODUCT DETAIL
-// const productRouter = require("./routers/productRouter");
-// app.use(productRouter);
+//  const productRouter = require("./routers/productRouter");
+//  app.use(productRouter);
 
 //LOGIN 
 const loginRouter = require("./routers/loginRouter");
 app.use(loginRouter);
+
+//SHOP
+const shopRouter = require("./routers/shopRouter");
+app.use(shopRouter);
+
+// PRODUCT CREATOR
+const productCreatorRouter = require("./routers/productCreatorRouter");
+app.use(productCreatorRouter);

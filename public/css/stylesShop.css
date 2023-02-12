@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #EEEEEE;
+}
+.main-title{
+    font-family: 'Aboreto', cursive;
+    font-size: 20px;
+    margin: 10px;
+    margin-left: 5px;
+}
+.create-buton{
+    font-family: 'Aboreto', cursive;
+    border: solid 1px black;
+    font-size: 13px;
+    margin: 5px;
+    font-weight: bolder;
+    padding: 2px;
+}
+.article-box{
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    width: 80%;
+    border: solid 1px black;
+    margin: 5px;
+}
