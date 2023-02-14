@@ -1,7 +1,9 @@
 const path = require("path");
+const productos = require("../data/products1.json");
 
 const main = (req,res) => {
-    res.render(path.resolve(__dirname, "../views/index.ejs"));
+    const producto = productos;
+    res.render(path.resolve(__dirname, "../views/index.ejs"), {producto});
 };
 
 module.exports = {
