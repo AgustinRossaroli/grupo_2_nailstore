@@ -13,10 +13,7 @@ app.set('view engine','ejs');
 //configura la carpeta estatica del proyecto
 app.use(express.static('public'));
 
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
-
-// FORMULARIOS
+//FORMULARIOS
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(methodOverride("_method"))
@@ -25,17 +22,10 @@ app.use(methodOverride("_method"))
 const mainRouter = require("./routers/mainRouters");
 app.use(mainRouter);
 
-//INICIAR SESIÓN}
+//PRODUCTOS 
+const productsRouter = require("./routers/productsRouter");
+app.use(productsRouter);
+
+//USUARIOS
 const usersRouter = require("./routers/usersRouter");
 app.use(usersRouter);
-// //PRODUCT DETAIL
-const productRouter = require("./routers/productsRouter");
-app.use(productRouter);
-
-//SHOP
-//const shopRouter = require("./routers/shopRouter")
-//app.use (shopRouter)
-
-//LOGIN
-const loginRouter = require("./routers/loginRouter")
-app.use(loginRouter)

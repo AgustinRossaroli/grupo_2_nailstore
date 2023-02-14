@@ -1,11 +1,11 @@
 const express = require("express");
 
-const {login, iniciarSesion} = require("../controllers/usersController");
+const {usersController} = require("../controllers/usersController");
 
 const usersRouter = express.Router(); 
 
-usersRouter.get("/login", login);
+usersRouter.get("/registrate", usersController.login);
 
-usersRouter.get("/register", iniciarSesion);
+usersRouter.get("/iniciarSesion", usersController.iniciarSesion);
 
 module.exports = usersRouter;

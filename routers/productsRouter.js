@@ -1,18 +1,18 @@
 const express = require("express");
 
-const {carrito, editarProducto, detalle, confirmarEdicion, shop, productCreator, postProductCreator} = require("../controllers/productsController");
+const {productsController} = require("../controllers/productsController");
 
 const productsRouter = express.Router();
 
-productsRouter.get("/shop", shop);
-productsRouter.get("/carrito", carrito);
+productsRouter.get("/shop", productsController.shop);
+productsRouter.get("/shop/product-creator", productsController.productCreator);
+productsRouter.post("/shop/product-creator", productsController.postProductCreator)
 
-productsRouter.get("/shop/product-creator", productCreator);
-productsRouter.post("/shop/product-creator", postProductCreator)
+productsRouter.get("/carrito", productsController.carrito);
 
-productsRouter.get("/detalle/:id", detalle);
+productsRouter.get("/detalle/:id", productsController.detalle);
 
-productsRouter.get("/editar/:id", editarProducto);
-productsRouter.put("/editar", confirmarEdicion)
+productsRouter.get("/editar/:id", productsController.editarProducto);
+productsRouter.put("/editar", productsController.confirmarEdicion)
 
 module.exports = productsRouter; 
