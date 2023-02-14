@@ -40,7 +40,7 @@ const edicion = {
     detalle: (req,res) => {
         const {id} = req.params;
         let allProducts = edicion.getAllProducts();
-    console.log(id);
+    
         const detalle = allProducts.find(i => i.id == id);
         
         res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), {detalle});
