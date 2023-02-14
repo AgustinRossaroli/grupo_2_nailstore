@@ -4,8 +4,8 @@ const {login, iniciarSesion} = require("../controllers/usersController");
 
 const usersRouter = express.Router(); 
 
-usersRouter.get("/registrar", login);
+usersRouter.get("/login", login);
 
-usersRouter.get("/iniciarSesion", iniciarSesion);
+usersRouter.get("/register", iniciarSesion);
 
 module.exports = usersRouter;

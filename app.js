@@ -29,5 +29,13 @@ app.use(mainRouter);
 const usersRouter = require("./routers/usersRouter");
 app.use(usersRouter);
 // //PRODUCT DETAIL
-//  const productRouter = require("./routers/productRouter");
-//  app.use(productRouter);
+const productRouter = require("./routers/productsRouter");
+app.use(productRouter);
+
+//SHOP
+//const shopRouter = require("./routers/shopRouter")
+//app.use (shopRouter)
+
+//LOGIN
+const loginRouter = require("./routers/loginRouter")
+app.use(loginRouter)
