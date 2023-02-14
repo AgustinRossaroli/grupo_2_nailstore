@@ -13,9 +13,6 @@ app.set('view engine','ejs');
 //configura la carpeta estatica del proyecto
 app.use(express.static('public'));
 
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
-
 // FORMULARIOS
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -28,6 +25,7 @@ app.use(mainRouter);
 //INICIAR SESIÓN}
 const usersRouter = require("./routers/usersRouter");
 app.use(usersRouter);
-// //PRODUCT DETAIL
-//  const productRouter = require("./routers/productRouter");
-//  app.use(productRouter);
+
+//PRODUCT DETAIL
+const productRouter = require("./routers/productsRouter");
+app.use(productRouter);
