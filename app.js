@@ -1,13 +1,31 @@
+//EXPRESS
 const express = require("express");
-const mainRouter = require("./routers/mainRouters")
-
 const app = express();
 
-const path = require("path");
+const methodOverride = require("method-override");
 
-const pathpublic = path.resolve(__dirname, "./public");
-app.use(express.static(pathpublic));
+const port = process.env.PORT || 3000;
 
-app.listen(3000, () => console.log("Ejecutado"));
+app.listen(port, () => console.log("Ejecutado"));
 
-app.use(mainRouter)
+//EJS 
+app.set('view engine','ejs');
+//configura la carpeta estatica del proyecto
+app.use(express.static('public'));
+
+//FORMULARIOS
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+app.use(methodOverride("_method"))
+
+//MAIN
+const mainRouter = require("./routers/mainRouters");
+app.use(mainRouter);
+
+//PRODUCTOS 
+const productsRouter = require("./routers/productsRouter");
+app.use(productsRouter);
+
+//USUARIOS
+const usersRouter = require("./routers/usersRouter");
+app.use(usersRouter);
