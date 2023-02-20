@@ -1,58 +1,58 @@
 [
-  {
-    "id": 1,
-    "name": "Lampara Ub",
-    "description": "Lámpara De Uñas Portátil Con Marco Dorado De 280w Led Uv",
-    "image": "img1.jpg",
-    "category": "Belleza",
-    "price": "15000"
-  },
-  {
-    "id": 2,
-    "name": "Poligel ",
-    "description": "Adecuado para uñas de gel UV, uñas acrílicas y uñas naturales.",
-    "image": "img2.jpg",
-    "category": "Belleza",
-    "price": "5000"
-  },
-  {
-    "id": 3,
-    "name": "Polygel Gliter 50ml",
-    "description": "Polygel Acrigel Decoración Uñas Glitter Manicure Nails Full",
-    "image": "img3.jpg",
-    "category": "Belleza",
-    "price": 7000
-  },
-  {
-    "id": 4,
-    "name": "Linterna UV",
-    "description": "Lámpara para sellado diseños y cristales",
-    "image": "img4.jpg",
-    "category": "Belleza",
-    "price": 8000
-  },
-  {
-    "id": 5,
-    "name": "Acrilico 30gr",
-    "description": "Polvo Acrilico Cover Rose, para crear trabajos profesionales",
-    "image": "img5.jpg",
-    "category": "Belleza",
-    "price": 6000
-  },
-  {
-    "id": 6,
-    "name": "Jewerly Gel Glue",
-    "description": "Pegamento para uñas postizas",
-    "image": "img6.jpg",
-    "category": "Belleza",
-    "price": 4000
-  },
-  {
-    "id": 7,
-    "name": "Gel Solido",
-    "description": "Gel solido para acompañar tus trabajos eliminando el uso broches",
-    "image": "img7.jpg",
-    "category": "Belleza",
-    "price": 7500
-  }
+    {
+        "id": 1,
+        "name": "Lampara Ub",
+        "description": "Lámpara De Uñas Portátil Con Marco Dorado De 280w Led Uv",
+        "image": "img1.jpg",
+        "category": "Belleza",
+        "price": "15000"
+    },
+    {
+        "id": 2,
+        "name": "Poligel ",
+        "description": "Adecuado para uñas de gel UV, uñas acrílicas y uñas naturales.",
+        "image": "img2.jpg",
+        "category": "Belleza",
+        "price": "5000"
+    },
+    {
+        "id": 3,
+        "name": "Polygel Gliter 50ml",
+        "description": "Polygel Acrigel Decoración Uñas Glitter Manicure Nails Full",
+        "image": "img3.jpg",
+        "category": "Belleza",
+        "price": 7000
+    },
+    {
+        "id": 4,
+        "name": "Linterna UV",
+        "description": "Lámpara para sellado diseños y cristales",
+        "image": "img4.jpg",
+        "category": "Belleza",
+        "price": 8000
+    },
+    {
+        "id": 5,
+        "name": "Acrilico 30gr",
+        "description": "Polvo Acrilico Cover Rose, para crear trabajos profesionales",
+        "image": "img5.jpg",
+        "category": "Belleza",
+        "price": 6000
+    },
+    {
+        "id": 6,
+        "name": "Jewerly Gel Glue",
+        "description": "Pegamento para uñas postizas",
+        "image": "img6.jpg",
+        "category": "Belleza",
+        "price": 4000
+    },
+    {
+        "id": 7,
+        "name": "Gel Solido",
+        "description": "Gel solido para acompañar tus trabajos eliminando el uso broches",
+        "image": "img7.jpg",
+        "category": "Belleza",
+        "price": 7500
+    }
 ]
