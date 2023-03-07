@@ -6,13 +6,31 @@ const fs = require("fs");
 
 const productsController = {
     shop: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": products })
+        const userSession = req.cookies.userSession;
+
+        if (userSession) {
+            res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": products });
+        } else {
+            res.redirect("/iniciarSesion");
+        }
     },
     carrito: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/products/carrito.ejs"));
+        const userSession = req.cookies.userSession;
+
+        if (userSession) {
+            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"));
+        } else {
+            res.redirect("/iniciarSesion");
+        }
     },
     productCreator: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/products/productCreator"))
+        const userSession = req.cookies.userSession;
+
+        if (userSession) {
+            res.render(path.resolve(__dirname, "../views/products/productCreator"));
+        } else {
+            res.redirect("/iniciarSesion");
+        }
     },
     postProductCreator: (req, res) => {
         const {
@@ -42,12 +60,18 @@ const productsController = {
         return JSON.parse(fs.readFileSync(productsController.filename, "utf-8"));
     },
     editarProducto: (req, res) => {
-        const { id } = req.params;
-        let allProducts = productsController.getAllProducts();
+        const userSession = req.cookies.userSession;
 
-        const editarProducto = allProducts.find(i => i.id == id);
+        if (userSession) {
+            const { id } = req.params;
+            let allProducts = productsController.getAllProducts();
 
-        res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { editarProducto });
+            const editarProducto = allProducts.find(i => i.id == id);
+
+            res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { editarProducto });
+        } else {
+            res.redirect("/iniciarSesion");
+        }
     },
     confirmarEdicion: (req, res) => {
         let allProducts = productsController.getAllProducts();
@@ -66,14 +90,21 @@ const productsController = {
         res.redirect("detalle/" + req.body.id);
     },
     detalle: (req, res) => {
-        const { id } = req.params;
-        let allProducts = productsController.getAllProducts();
+        const userSession = req.cookies.userSession;
 
-        const detalle = allProducts.find(i => i.id == id);
+        if (userSession) {
+            const { id } = req.params;
+            let allProducts = productsController.getAllProducts();
 
-        res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), { detalle });
+            const detalle = allProducts.find(i => i.id == id);
+
+            res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), { detalle });
+        } else {
+            res.redirect("/iniciarSesion");
+        };
     }
 };
+
 module.exports = {
     productsController
 };
