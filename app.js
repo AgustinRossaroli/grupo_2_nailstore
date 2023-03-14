@@ -18,9 +18,19 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-//SESIONES
+//COOKIES
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
+
+//SESSIONS 
+const session = require('express-session');
+app.use(session({
+    secret: 'clave-Secreta', 
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+    maxAge: Date.now() + (1 * 86400 * 1000) 
+}));
 
 //MAIN
 const mainRouter = require("./routers/mainRouters");

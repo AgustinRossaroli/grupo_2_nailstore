@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/userDetail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%- include('../partials/head.ejs') %>
+        <title>Detalles del usuario</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <article class="articulo">
+            <div class="imgBox">
+                <img id="img-product" src="<%= user.image%>" alt="">
+            </div>
+            <div class="edits">
+                <h3>ID: <%= user.id%></h3>
+                <h4 class="h4">Nombre</h4>
+                <p class="descripcion"><%= user.name%></p>
+                <div class="categoria">
+                    <h5>Email </h5>
+                    <p class="p"><%= user.email%>.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
