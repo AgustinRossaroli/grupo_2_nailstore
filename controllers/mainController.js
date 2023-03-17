@@ -8,7 +8,7 @@ const mainController = {
         if (userSession) {
             res.render(path.resolve(__dirname, "../views/index.ejs"), {"allProducts": products});
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         }
     },
     aboutUs: (req,res) => {
@@ -18,4 +18,4 @@ const mainController = {
 
 module.exports = {
     mainController
-};
+}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/inicioSesion.css">
+    <link rel="stylesheet" href="/css/signUp.css">
     <%- include('../partials/head.ejs') %>
         <title>Registrate</title>
 </head>
@@ -14,11 +14,11 @@
     <%- include('../partials/header.ejs') %>
         <main>
             <h1>NAILS STORE</h1>
-            <h3>¿Ya estás registrado? <a href="/iniciarSesion">Ingresá aquí</a></h3>
-            <form action="/crearUser" method="post" class="form">
+            <h3>¿Ya estás registrado? <a href="/login">Ingresá aquí</a></h3>
+            <form action="/signUp" method="post" class="form">
                 <div class="formItem">
                     <label for="Nombre">NOMBRE</label>
-                    <input class="formBar" type="text" name="Nombre" placeholder="Nombre y apellido">
+                    <input class="formBar" type="text" name="name" placeholder="Nombre y apellido">
                 </div>
                 <div class="formItem">
                     <label for="email">EMAIL</label>
@@ -30,7 +30,11 @@
                 </div>
                 <div class="formItem">
                     <label>FECHA DE NACIMIENTO</label>
-                    <input class="formBar" type="date" name="nacimiento">
+                    <input class="formBar" type="date" name="born">
+                </div>
+                <div class="formItem">
+                    <label>FOTO DE PERFIL</label>
+                    <input class="formBar" type="file" name="image" id="image">
                 </div>
                 <button id="boton" type="submit">CREAR CUENTA</button>
             </form>

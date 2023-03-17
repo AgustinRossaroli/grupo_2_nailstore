@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {productsController} = require("../controllers/productsController");
+const { productsController } = require("../controllers/productsController");
 
 const productsRouter = express.Router();
 
@@ -15,4 +15,4 @@ productsRouter.get("/detalle/:id", productsController.detalle);
 productsRouter.get("/editar/:id", productsController.editarProducto);
 productsRouter.put("/editar", productsController.confirmarEdicion)
 
-module.exports = productsRouter; 
+module.exports = productsRouter;

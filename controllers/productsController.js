@@ -6,30 +6,24 @@ const fs = require("fs");
 
 const productsController = {
     shop: (req, res) => {
-        const userSession = req.cookies.userSession;
-
-        if (userSession) {
+        if (req.session.email) {
             res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": products });
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         }
     },
     carrito: (req, res) => {
-        const userSession = req.cookies.userSession;
-
-        if (userSession) {
+        if (req.session.email) {
             res.render(path.resolve(__dirname, "../views/products/carrito.ejs"));
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         }
     },
     productCreator: (req, res) => {
-        const userSession = req.cookies.userSession;
-
-        if (userSession) {
+        if (req.session.email) {
             res.render(path.resolve(__dirname, "../views/products/productCreator"));
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         }
     },
     postProductCreator: (req, res) => {
@@ -60,9 +54,7 @@ const productsController = {
         return JSON.parse(fs.readFileSync(productsController.filename, "utf-8"));
     },
     editarProducto: (req, res) => {
-        const userSession = req.cookies.userSession;
-
-        if (userSession) {
+        if (req.session.email) {
             const { id } = req.params;
             let allProducts = productsController.getAllProducts();
 
@@ -70,7 +62,7 @@ const productsController = {
 
             res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { "editarProducto": editarProducto });
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         }
     },
     confirmarEdicion: (req, res) => {
@@ -90,9 +82,7 @@ const productsController = {
         res.redirect("detalle/" + req.body.id);
     },
     detalle: (req, res) => {
-        const userSession = req.cookies.userSession;
-
-        if (userSession) {
+        if (req.session.email) {
             const { id } = req.params;
             let allProducts = productsController.getAllProducts();
 
@@ -100,7 +90,7 @@ const productsController = {
 
             res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), { detalle });
         } else {
-            res.redirect("/iniciarSesion");
+            res.redirect("/login");
         };
     }
 };
