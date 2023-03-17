@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Lampara Ub",
+        "name": "Lampara UV",
         "description": "Lámpara De Uñas Portátil Con Marco Dorado De 280w Led Uv",
         "image": "img1.jpg",
         "category": "Belleza",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "Poligel ",
+        "name": "Poligel",
         "description": "Adecuado para uñas de gel UV, uñas acrílicas y uñas naturales.",
         "image": "img2.jpg",
         "category": "Belleza",

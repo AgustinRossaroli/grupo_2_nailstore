@@ -68,7 +68,7 @@ const productsController = {
 
             const editarProducto = allProducts.find(i => i.id == id);
 
-            res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { editarProducto });
+            res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { "editarProducto": editarProducto });
         } else {
             res.redirect("/iniciarSesion");
         }

@@ -1,16 +1,18 @@
 const path = require("path");
-const productos = require("../data/products1.json");
+const products = require("../data/products1.json");
 
 const mainController = {
     main: (req,res) => {
-        const producto = productos;
         const userSession = req.cookies.userSession;
 
         if (userSession) {
-            res.render(path.resolve(__dirname, "../views/index.ejs"), {producto});
+            res.render(path.resolve(__dirname, "../views/index.ejs"), {"allProducts": products});
         } else {
             res.redirect("/iniciarSesion");
         }
+    },
+    aboutUs: (req,res) => {
+        res.render(path.resolve(__dirname, "../views/aboutUs.ejs"));
     }
 };
 

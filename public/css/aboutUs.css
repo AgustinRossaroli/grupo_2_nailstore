@@ -1,0 +1,108 @@
+/* Global Styles */
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+h2 {
+	font-size: 36px;
+	margin: 0 0 20px;
+    color: black;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0 0 20px;
+    color: black;
+}
+
+/* Hero Section */
+
+.hero {
+	background-image: url(images/hero.jpg);
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	padding: 100px 0;
+	text-align: center;
+}
+
+.hero h2 {
+	font-size: 60px;
+	margin: 0 0 20px;
+}
+
+/* Values Section */
+
+.values {
+	background-color: #f2f2f2;
+	padding: 50px 0;
+}
+
+.value {
+	margin: 0 0 50px;
+}
+
+.value h3 {
+	font-size: 24px;
+	margin: 0 0 10px;
+}
+
+/* Team Section */
+
+.team {
+	padding: 50px 0;
+}
+
+.member {
+	margin: 0 20px 50px;
+	text-align: center;
+}
+
+.member img {
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+}
+
+.member h3 {
+	font-size: 24px;
+	margin: 20px 0 10px;
+}
+
+.member p {
+	font-size: 16px;
+	margin: 0;
+}
+
+/* Testimonials Section */
+
+.testimonials {
+	background-color: #f2f2f2;
+	padding: 50px 0;
+	text-align: center;
+}
+
+.testimonial {
+	margin: 0 0 50px;
+	padding: 0 20px;
+}
+
+.testimonial p {
+	font-size: 24px;
+	line-height: 1.5;
+	margin: 0 0 20px;
+}
+
+.testimonial .author {
+	font-size: 16px;
+	margin: 0;
+}

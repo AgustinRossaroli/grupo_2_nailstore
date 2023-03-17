@@ -50,4 +50,13 @@ h1 {
     text-align: center;
     border-bottom: solid 1px;
     opacity: 0.7;
+    margin-top: 2rem;
+}
+#banner {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 70%;
+    height: 20rem;
+    position: relative;
+    left: 15%;
 }
