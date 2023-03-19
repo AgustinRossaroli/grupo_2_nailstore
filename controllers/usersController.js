@@ -31,7 +31,7 @@ const usersController = {
         res.render(path.resolve(__dirname, "../views/users/signUp.ejs"));
     },
     signUpUser: (req, res) => {
-        const { name, email, password, date, image } = req.body;
+        const { name, email, password, born } = req.body;
 
         const user = usersController.getAllUsers();
 
@@ -43,12 +43,14 @@ const usersController = {
             }
         };
 
+        let image = req.file ? req.file.filename : "fotoUser.jpg";
+
         const obj = {
             id: newId(user),
             name: name,
             email: email,
             password: bcrypt.hashSync(password, 10),
-            born: date,
+            born: born,
             image: image
         };
 
@@ -56,7 +58,7 @@ const usersController = {
 
         fs.writeFileSync(usersController.filename, JSON.stringify(user, null, " "));
 
-        res.send("Usuario Creado");
+        res.redirect("/home");
     },
     userDetail: (req,res) => {
         const {id} = req.params;
@@ -64,7 +66,19 @@ const usersController = {
 
         const user = allUsers.find((i) => i.id == id);
         
-        res.render(path.resolve(__dirname, "../views/users/userDetail.ejs"), {user})
+        res.render(path.resolve(__dirname, "../views/users/userDetail.ejs"), {
+            "user": user,
+            "referer": req.headers.referer 
+        })
+    },
+    logout: (req,res) => {
+        req.session.destroy(function(err) {
+            if(err) {
+              console.log(err);
+            } else {
+              res.redirect('/home');
+            }
+        });
     }
 };
 

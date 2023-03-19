@@ -4,7 +4,9 @@
     padding: 0px;
 }
 body {
-    background-color: #EEEEEE ;
+    background-image: url("/images/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: "Roboto", sans-serif;
 }
 .product-section{
@@ -50,4 +52,16 @@ h1 {
     text-align: center;
     border-bottom: solid 1px;
     opacity: 0.7;
+    margin-top: 2rem;
+}
+#banner {
+    border: 2px solid #ccc;
+    border-top: none;
+    border-radius: 5px;
+    width: 50%;
+    height: 15rem;
+    position: relative;
+    left: 23%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 2px;
 }

@@ -4,7 +4,9 @@
     padding: 0;
 }
 body {
-    background-color: #EEEEEE;
+    background-image: url("/images/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: "Roboto", sans-serif;
 }
 .section-box{
@@ -12,64 +14,86 @@ body {
     align-items: center;
     justify-content: center;
     margin: 50px;
-    border: 1px solid;
-    background-color: white;
+    background-color: #FFF;
     height: 80vh;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+    border-radius: 100px;
 }
 img {
     height: 100%;
 }
 .login-image{
-    width: 50%;
+    width: 100%;
     height: 100%;
 }
 .form-box{
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 form{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+    width: 80%;
+    margin-left: 5rem;
 }
 .titles-box{
-    font-family: 'Aboreto', cursive;
-    padding: 3px;
+    letter-spacing: 2.3px;
+    position: relative;
+    left: 30px;
+    display: block;
+    margin-top: 10px;
 }
 .input{
-    border: none;
-    padding: 5px;
-    background-color: white;
+    width: 22rem;
+    height: 1px;
+    max-width: 380px;
+    margin-bottom: 15px;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-top: 8px;
+    padding: 23px 20px;
+    position: relative;
+    left: 30px;
+    margin-right: 60px;
 }
 input:focus{
     outline: none;
-}
-.input-box{
-    width: 200px;
-    border: 1px solid;
-}
-.submit-box{
-    display: flex;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    align-items: center;
-}
-.submit-botom{
-    border: 1px solid;
-    margin-right: 5px;
 }
 a{
     text-decoration: none;
 }
 #password{
-    font-size: 13px;
-    border-bottom: solid 1px;
-    color: grey;
+    background-color: #FFF;
+    color: #F8BBD0;
+    border: 2px solid #F8BBD0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 #register{
-    color: black;
-    border-bottom: 1px solid;
-    width: fit-content;
+    background-color: #FFF;
+    color: #F8BBD0;
+    border: 2px solid #F8BBD0;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
+.ayuda {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.titles {
+    font-size: x-large;
+    letter-spacing: 3px;
+}
+.boton {
+    background-color: #F8BBD0;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+  

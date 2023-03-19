@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,40 +9,55 @@
     <script src="https://kit.fontawesome.com/ce6a0d0b56.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <%- include('../partials/head.ejs') %>
-    <title>Tienda</title>
+        <title>Tienda</title>
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
-    <main>
-        <div class="main-title">
-            Nuestra Tienda
-        </div>
-        <a href="/shop/product-creator" class="create-buton"><i class="fa-solid fa-plus"></i>Crea tu Producto</a>
-        <% for(let i=0; i< allProducts.length; i++) {%>
-            <ul>
-                <li>
-                    <article class="article-box">
-                        <img src="<%= allProducts[i].image %>" alt="" srcset="">
-                        <div>
-                            Nombre
-                        </div>
-                        <a href="/detalle/<%= allProducts[i].id %>">
-                            <div>
-                            <%= allProducts[i].name %>
+        <main>
+            <div class="main-title">
+                Nuestra Tienda
+            </div>
+            <a href="/shop/product-creator" class="create-buton"><i class="fa-solid fa-plus"></i> Crea tu Producto</a>
+            <% for(let i=0; i< allProducts.length; i++) {%>
+                <ul>
+                    <li>
+                        <article class="articulo">
+                            <div class="imgBox">
+                                <a href="/producto/<%=allProducts[i].id %>">
+                                    <img id="img-product" src="/images/<%=allProducts[i].image%>" alt="">
+                                </a>
                             </div>
-                        </a>
-                        <div>
-                            Precio
-                        </div>
-                        <div>
-                            <%= allProducts[i].price %>
-                        </div>
-                    </article>
-                </li>
-            </ul>
-        <%}%>
-        
-    </main>
-    <%- include('../partials/footer.ejs') %>
+                            <div class="edits">
+                                <a href="/producto/<%=allProducts[i].id %>">
+                                    <h3>
+                                        <%= allProducts[i].name%>
+                                    </h3>
+                                    <div class="precio">$ <%= allProducts[i].price%>
+                                    </div>
+                                    <h4 class="h4">Descripción</h4>
+                                    <p class="descripcion">
+                                        <%= allProducts[i].description%>
+                                    </p>
+                                    <div class="categoria">
+                                        <h5>Categoría: </h5>
+                                        <p class="p">
+                                            <%= allProducts[i].category%>.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="admin">
+                                <a href="/editar/<%=allProducts[i].id%>" class="editar"><p class="editText">EDITAR</p></a>
+                                <button class="borrar"><p class="borrarText">BORRAR</p></button>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+                <%}%>
+
+        </main>
+        <%- include('../partials/footer.ejs') %>
 </body>
+
 </html>

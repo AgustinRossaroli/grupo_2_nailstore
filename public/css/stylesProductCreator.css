@@ -4,27 +4,32 @@
     padding: 0;
 }
 body{
-    background-color: #EEEEEE;
+    background-image: url("/images/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .main-div{
     height: 66vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
 }
-form{
+.form{
     width: 40%;
-    border: solid 1px black;
-    background-color: white;
+    height: 90%;
+    background-color: #FFF0F5;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .main-title{
     font-family: 'Aboreto', cursive;
     font-size: 20px;
     font-weight: bolder;
     margin: 5px;
+    margin-top: 15px;
 }
 .div-box{
     width: 57%;
@@ -40,13 +45,14 @@ form{
 }
 input{
     border: none;
-    background-color: white
+    background-color: #FFF0F5;
 }
 input:focus{
     outline: none;
 }
 textarea{
     border: none;
+    background-color: #FFF0F5;
 }
 textarea:focus{
     outline: none;
@@ -69,7 +75,29 @@ textarea:focus{
 .buton-box{
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    border: solid 1px black;
+    border-radius: 10px;
     padding: 5px;
     margin: 10px;
+    box-shadow: 0 0 5px gray;
+}
+footer {
+    background-color: #FFEBEE;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    padding: 11px;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+#boton {
+    height: 30px;
+    width: fit-content;
+    padding: 7px;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+    background-image: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 192, 203, 0.5));
+    border-color: black;
+    letter-spacing: 1px;
+    margin-top: 15px;
 }
