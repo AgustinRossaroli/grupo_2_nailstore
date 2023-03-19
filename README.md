@@ -6,14 +6,19 @@ Nailstore es la fuente más conveniente y exclusiva para los profesionales de la
 
 Algunas referencias del mercado:
 1) https://www.nenha.com/manicura-rusa-o-dry-manicura
+Interesantes los tonos de colores que se usan en todas las paginas, rosa claro, blanco etc. 
 
 2) https://www.unella.com.ar/
 
 3) https://nailsandco.com.ar/?gclid=Cj0KCQiA1sucBhDgARIsAFoytUt-yuC2eeQKZhzXNZA1REtLE6_TQAoVLi0qPFY6SrtQQS4abPz3mSwaAuNVEALw_wcB 
+Interesante el home 
 
 4) https://gonails.com.ar/?gclid=Cj0KCQiA1sucBhDgARIsAFoytUuG2EBPxGU67_UtVkh2itlrA5IBXsYOubqk5_58C53gjUniskGx7-4aAgyJEALw_wcB
+Interesante también el home
+
 
 5)https://noxstudio.com.ar/ 
+Interesante como el header se acopla a la pagina de inicio. 
 
 
 Integrantes del proyecto:

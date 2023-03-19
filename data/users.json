@@ -3,7 +3,8 @@
   "id": 1,
   "name": "Agustin",
   "email": "agustin@gmail.com",
-  "password": "$2b$10$ulw4ofL1FulrlXIuIcH4KuP37rF066hQuLWfZ08Wsv.QfgYFOQqg6",
-  "image": ""
+  "password": "$2b$10$wFIUvV2dPGbTNlnFfhbd4ORA6rU3bqc8XLQtKl63WvDJPb2XyZPC2",
+  "born": "2000-08-26",
+  "image": "1679187851608-paisa.jfif"
  }
 ]

@@ -15,6 +15,7 @@ header {
     border: solid 1px black;
     justify-content: space-around;
     align-items: center;
+    height: 4rem;
 }
 .search-box{
     display: flex;
@@ -22,9 +23,11 @@ header {
     align-items: center;
     border: solid 1px;
     height: fit-content;
+    width: 20%;
 }
 .text-search-box{
     padding: 5px;
+    width: 100%;
 }
 #text-search{
     border: none;
@@ -71,3 +74,62 @@ a{
     border: solid 1px;
     padding: 5px;
 }
+.userImage {
+    border-radius: 30px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    height: 55px;
+    width: 55px;
+}
+#logout {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Aboreto', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.list-option {
+    margin: auto;
+}
+.userProfile {
+    display: flex;
+}
+.navMenu {
+    display: none; 
+}
+
+@media (max-width: 1200px) {
+
+.navMenu {
+    display: block;
+}
+.list-menu {
+    display: flex;
+    justify-content: center;
+    
+}
+.list-Omenu {
+    margin: 30px 15% 0 15%;
+}
+.list-OLmenu {
+    margin: 30px 15% 0 0;
+}
+.list-Omenu a {
+    margin-top: 10px;
+}
+.list-box {
+    display: none;
+}
+.userImage {
+    height: 45px;
+    width: 45px;
+    margin-top: 16px;
+}
+header {
+    padding-bottom: 8px;
+}
+.search-box {
+    width: 50%;
+}
+} 

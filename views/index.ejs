@@ -13,36 +13,50 @@
 <body>
     <%- include('./partials/header.ejs') %>
         <main>
-            <img src="/images/banner.jpg" alt="baner" id="banner">
+            <img src="/images/nailBanner.jpg" alt="baner" id="banner">
             <h1>OFERTAS</h1>
             <div class="main">
                 <section class="product-section">
-                    <% for (let i=1; i < 5; i++) { %>
-                    <div class="product-box">
-                        <div class="product-image">
-                            <img src="/images/<%=allProducts[i].image%>" alt="No responde">
+                    <% for (let i=1; i <=4; i++) { %>
+                        <div class="product-box">
+                            <div class="product-image">
+                                <a href="/producto/<%=i%>">
+                                    <img src="/images/<%=allProducts[i-1].image%>" alt="No responde">
+                                </a>
+                            </div>
+                            <div class="product-description">
+                                <a href="/producto/<%=i%>">
+                                    <div class="product-prize">$ <%= allProducts[i-1].price %>
+                                    </div>
+                                    <div class="product-title">
+                                        <%= allProducts[i-1].name %>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="product-description">
-                            <div class="product-prize">$ <%= allProducts[i].price %></div>
-                            <div class="product-title"><%= allProducts[i].name %></div>
-                        </div> 
-                    </div>
-                    <% } %>
+                        <% } %>
                 </section>
             </div>
             <h1>BASADO EN TUS BÚSQUEDAS</h1>
             <section class="product-section-personal">
                 <% for (let i=3; i < 7; i++) { %>
-                <div class="product-box">
-                    <div class="product-image">
-                        <img src="/images/<%=allProducts[i].image%>" alt="No responde">
+                    <div class="product-box">
+                        <div class="product-image">
+                            <a href="/producto/<%=i%>">
+                                <img src="/images/<%=allProducts[i-1].image%>" alt="No responde">
+                            </a>
+                        </div>
+                        <div class="product-description">
+                            <a href="/producto/<%=i%>">
+                                <div class="product-prize">$ <%= allProducts[i-1].price %>
+                                </div>
+                                <div class="product-title">
+                                    <%= allProducts[i-1].name %>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="product-description">
-                        <div class="product-prize">$ <%= allProducts[i].price %></div>
-                        <div class="product-title"><%= allProducts[i].name %></div>
-                    </div>
-                </div>
-                <% } %>
+                    <% } %>
             </section>
             </div>
         </main>

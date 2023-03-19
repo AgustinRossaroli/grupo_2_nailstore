@@ -23,9 +23,22 @@
                 <li class="list-option">
                     <a href="/aboutus">Nosotros</a>
                 </li>
-                <li class="list-option">
-                    <a href="/login">Ingresa</a>
-                </li>
+                <% if (user) { %>
+                    <div class="userProfile">
+                    <a href="/user/<%=user.id%>">
+                    <img class="userImage" src="/images/<%=user.image%>" alt="usuario">
+                    </a>
+                    <li class="list-option">
+                        <form action="/logout" method="POST">
+                            <button id="logout" type="submit">&#10145; Logout</button>
+                        </form>
+                    </li>
+                    </div>
+                <% } else {%>
+                    <li class="list-option">
+                        <a href="/login">Ingresa</a>
+                    </li>
+                <%}%>
             </ul>
         </div>
         <div class="cart">
@@ -34,6 +47,34 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
+        </div>
+    </div>
+    <div class="navMenu">
+        <div class="list-menu">
+            <ul class="list">
+                <li class="list-Omenu">
+                    <a href="/shop">Tienda</a>
+                </li>
+                <li class="list-Omenu">
+                    <a href="/aboutus">Nosotros</a>
+                </li>
+                <% if (user) { %>
+                    <div class="userProfile">
+                    <a href="/user/<%=user.id%>">
+                    <img class="userImage" src="/images/<%=user.image%>" alt="usuario">
+                    </a>
+                    <li class="list-OLmenu">
+                        <form action="/logout" method="POST">
+                            <button id="logout" type="submit">Logout</button>
+                        </form>
+                    </li>
+                    </div>
+                <% } else {%>
+                    <li class="list-Omenu">
+                        <a href="/login">Ingresa</a> 
+                    </li>
+                <%}%>
+            </ul>
         </div>
     </div>
 </header>
