@@ -1,0 +1,103 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+h2 {
+	font-size: 36px;
+	margin: 0 0 20px;
+    color: black;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0 0 20px;
+    color: black;
+}
+
+.hero {
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	padding: 100px 0;
+	text-align: center;
+    background-color: #FFF0F5;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.hero h2 {
+	font-size: 60px;
+	margin: 0 0 20px;
+}
+
+.values {
+	background-color: #f2f2f2;
+	padding: 50px 0;
+}
+
+.value {
+	margin: 0 0 50px;
+}
+
+.value h3 {
+	font-size: 24px;
+	margin: 0 0 10px;
+}
+
+.team {
+	padding: 50px 0;
+    background-color: #FFF0F5;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.member {
+	margin: 0 20px 50px;
+	text-align: center;
+}
+
+.member img {
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+}
+
+.member h3 {
+	font-size: 24px;
+	margin: 20px 0 10px;
+}
+
+.member p {
+	font-size: 16px;
+	margin: 0;
+}
+
+.testimonials {
+	background-color: #f2f2f2;
+	padding: 50px 0;
+	text-align: center;
+}
+
+.testimonial {
+	margin: 0 0 50px;
+	padding: 0 20px;
+}
+
+.testimonial p {
+	font-size: 24px;
+	line-height: 1.5;
+	margin: 0 0 20px;
+}
+
+.testimonial .author {
+	font-size: 16px;
+	margin: 0;
+}

@@ -17,27 +17,15 @@
         <main>
             <section class="elementos">
                 <h2>ELEMENTOS EN TU CARRITO DE COMPRAS</h2>
+                <% for (let i = 1; i <= 3; i++) { %>
                 <div class="producto">
-                    <img src="/images/espacioImagen.jpg" alt="">
+                    <img class="img" src="/images/<%=allProducts[i].image%>" alt="">
                     <div class="descripcion">
-                        <div class="nombre">NOMBRE DEL PRODUCTO</div>
-                        <div class="precio">$ 0000</div>
+                        <div class="nombre"><%=allProducts[i].name%></div>
+                        <div class="precio">$ <%=allProducts[i].price%></div>
                     </div>
                 </div>
-                <div class="producto">
-                    <img src="/images/espacioImagen.jpg" alt="">
-                    <div class="descripcion">
-                        <div class="nombre">NOMBRE DEL PRODUCTO</div>
-                        <div class="precio">$ 0000</div>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img src="/images/espacioImagen.jpg" alt="">
-                    <div class="descripcion">
-                        <div class="nombre">NOMBRE DEL PRODUCTO</div>
-                        <div class="precio">$ 0000</div>
-                    </div>
-                </div>
+                <% } %>
             </section>
             <section class="resumen">
                 <h2>RESUMEN DE TU COMPRA</h2>

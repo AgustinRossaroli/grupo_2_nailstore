@@ -1,18 +1,31 @@
 const express = require("express");
+const rutasMW = require("../middlewares/rutas");
+const multer = require("multer")
 
 const { productsController } = require("../controllers/productsController");
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/images/");
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
+    },
+});
+
+const upload = multer({ storage: storage })
+
 const productsRouter = express.Router();
 
-productsRouter.get("/shop", productsController.shop);
-productsRouter.get("/shop/product-creator", productsController.productCreator);
-productsRouter.post("/shop/product-creator", productsController.postProductCreator)
+productsRouter.get("/shop", rutasMW, productsController.shop);
+productsRouter.get("/shop/product-creator", rutasMW, productsController.productCreator);
+productsRouter.post("/shop/product-creator",upload.single("image"), productsController.postProductCreator)
 
-productsRouter.get("/carrito", productsController.carrito);
+productsRouter.get("/carrito", rutasMW, productsController.carrito);
 
-productsRouter.get("/detalle/:id", productsController.detalle);
+productsRouter.get("/producto/:id", rutasMW, productsController.detalle);
 
-productsRouter.get("/editar/:id", productsController.editarProducto);
-productsRouter.put("/editar", productsController.confirmarEdicion)
+productsRouter.get("/editar/:id", rutasMW, productsController.editarProducto);
+productsRouter.put("/editar",upload.single("image"), productsController.confirmarEdicion)
 
 module.exports = productsRouter;
