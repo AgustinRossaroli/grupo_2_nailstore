@@ -17,16 +17,16 @@
     <main>
         <article class="articulo">
             <div class="imgBox">
-                <img id="img-product" src="<%= user.image%>" alt="">
+                <img id="img-product" src="/images/<%=user.image%>" alt="">
             </div>
             <div class="edits">
-                <h3>ID: <%= user.id%></h3>
                 <h4 class="h4">Nombre</h4>
-                <p class="descripcion"><%= user.name%></p>
-                <div class="categoria">
-                    <h5>Email </h5>
-                    <p class="p"><%= user.email%>.</p>
-                </div>
+                <p class="p"><%=user.name%></p>
+                <h4 class="h4">Email</h4>
+                <p class="p"><%=user.email%></p>
+                <h4 class="h4">Fecha de nacimiento</h4>
+                <p class="p"><%=user.born%></p>
+                <a id="boton" href="<%= referer %>">Volver</a>
             </div>
         </article>
     </main>

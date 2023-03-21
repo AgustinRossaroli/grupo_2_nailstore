@@ -13,7 +13,7 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <div class="main-div">
-            <form action="/shop/product-creator" method="POST">
+            <form class="form" action="/shop/product-creator" method="POST">
                 <div class="main-title">
                     Crea tu Producto
                 </div>
@@ -51,7 +51,7 @@
                         <label for="">Define el Precio de tu Producto</label>
                     </div>
                     <div class="div-input">
-                        <input type="text" name="price" id="">
+                        <input type="number" name="price" id="">
                     </div>
                 </div>
                 <div class="div-box">
@@ -65,6 +65,7 @@
                 <div class="buton-box">
                     <input type="submit" value="Crear Producto">
                 </div>
+                <a id="boton" href="<%= referer %>">Volver</a>
             </form>
         </div>
     </main>

@@ -1,29 +1,148 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: #EEEEEE;
+
+body {
+    background-image: url("/images/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.main-title{
+
+.main-title {
     font-family: 'Aboreto', cursive;
-    font-size: 20px;
-    margin: 10px;
-    margin-left: 5px;
+    font-size: 30px;
+    margin: 30px;
+    text-align: center;
+    letter-spacing: 1px;
 }
-.create-buton{
+
+.create-buton {
     font-family: 'Aboreto', cursive;
     border: solid 1px black;
     font-size: 13px;
-    margin: 5px;
     font-weight: bolder;
-    padding: 2px;
+    padding: 5px;
+    position: relative;
+    left: 46%;
+    bottom: 10px;
+    background-color: aliceblue;
 }
-.article-box{
-    background-color: white;
-    font-family: "Roboto", sans-serif;
-    width: 80%;
-    border: solid 1px black;
-    margin: 5px;
+
+.articulo {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 90%;
+    margin-left: 40px;
+    background-color: #FFEBEE;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+    border-radius: 100px;
+    padding: 20px;
+    padding-top: 0;
 }
+
+#img-product {
+    height: 200px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.imgBox {
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.edits {
+    margin-left: 40px;
+    width: 20%;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+p {
+    max-width: 300px;
+}
+
+.precio {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+h5 {
+    font-size: large;
+    display: inline;
+}
+
+.h4 {
+    font-size: large;
+}
+
+.descripcion {
+    font-size: small;
+}
+
+.p {
+    display: inline;
+    font-size: 16px;
+}
+
+.categoria {
+    margin-top: 25px;
+}
+
+.editar {
+    background-color: bisque;
+    border: none;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 12px 10px 0px 10px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+    position: relative;
+    left: 100%;
+    height: 230px;
+    width: 100px;
+}
+
+.borrar {
+    background-color: bisque;
+    border: none;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 12px 10px 0px 10px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+    position: relative;
+    left: 100%;
+    height: 230px;
+    width: 100px;
+}
+
+.editText {
+    margin-top: 140%;
+}
+
+.editar:active {
+    background-color:antiquewhite;
+}
+

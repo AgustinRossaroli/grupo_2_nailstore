@@ -17,7 +17,7 @@
     <main>
         <article class="articulo">
             <div class="imgBox">
-                <img id="img-product" src="<%= detalle.image%>" alt="">
+                <img id="img-product" src="/images/<%=detalle.image%>" alt="">
             </div>
             <div class="edits">
                 <h3><%= detalle.name%></h3>
@@ -28,6 +28,7 @@
                     <h5>Categoría: </h5>
                     <p class="p"><%= detalle.category%>.</p>
                 </div>
+                <a id="boton" href="<%= referer %>">Volver</a>
             </div>
         </article>
     </main>

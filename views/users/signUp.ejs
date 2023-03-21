@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/header.ejs') %> 
         <main>
             <h1>NAILS STORE</h1>
             <h3>¿Ya estás registrado? <a href="/login">Ingresá aquí</a></h3>
-            <form action="/signUp" method="post" class="form">
+            <form action="/signUp" method="post" class="form" enctype="multipart/form-data">
                 <div class="formItem">
                     <label for="Nombre">NOMBRE</label>
                     <input class="formBar" type="text" name="name" placeholder="Nombre y apellido">

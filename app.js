@@ -32,6 +32,17 @@ app.use(session({
     maxAge: Date.now() + (1 * 86400 * 1000) 
 }));
 
+//VARIABLES COMUNES
+const {mainController} = require("./controllers/mainController");
+app.use(function(req, res, next) {
+    const email = req.session.email;
+ 
+    const user = mainController.getAllUsers().find((i) => i.email == email);
+
+    res.locals.user = user;
+    next();
+});
+
 //MAIN
 const mainRouter = require("./routers/mainRouters");
 app.use(mainRouter);

@@ -3,6 +3,7 @@
   "id": 1,
   "name": "Agustin",
   "email": "agustin@gmail.com",
+<<<<<<< HEAD
   "password": "$2b$10$ulw4ofL1FulrlXIuIcH4KuP37rF066hQuLWfZ08Wsv.QfgYFOQqg6",
   "image": ""
  },
@@ -12,5 +13,10 @@
   "email": "yhoxin79@gmail.com",
   "password": "$2b$10$9NVBnghlEpGk7X01QH8R2uQIK3I4q7W4tafgx4Q1RtB0dFC6CxoTy",
   "image": ""
+=======
+  "password": "$2b$10$wFIUvV2dPGbTNlnFfhbd4ORA6rU3bqc8XLQtKl63WvDJPb2XyZPC2",
+  "born": "2000-08-26",
+  "image": "1679187851608-paisa.jfif"
+>>>>>>> 61634dc167a9c9b30de1635cce7ac8105e573bc4
  }
 ]

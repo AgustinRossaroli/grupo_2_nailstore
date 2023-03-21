@@ -20,34 +20,33 @@
                     </div>
                     <div class="form-box">
                         <form action="/login" method="post">
-                            <div class="logo-box">
-                                <div class="logo">Nail Store</div>
-                            </div>
                             <div class="titles-box">
                                 <div class="titles">Email</div>
                             </div>
-                            <div class="input-box">
+                            <div>
                                 <input type="text" class="input" name="email" placeholder="Correo electrónico" />
                             </div>
                             <div class="titles-box">
                                 <div class="titles">Contraseña</div>
                             </div>
-                            <div class="input-box">
+                            <div>
                                 <input type="password" class="input" name="password" placeholder="Contraseña" />
                             </div>
-                            <div class="submit-box">
+                            <div>
                                 <div class="submit-botom">
-                                    <input type="submit" class="input" id="send-botom" value="Ingresar" />
+                                    <button type="submit" class="boton" id="send-botom">Ingresar</button>
                                 </div>
-                                <a href="/password" id="password">Olvidaste tu contraseña?</a>
                             </div>
-                            <a href="/signUp" id="register">Crea tu Cuenta</a>
+                            <div class="ayuda">
+                            <a href="/password" id="password">¿Olvidaste tu contraseña?</a>
+                            <a href="/signUp" id="register">Creá tu Cuenta</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </main>
-        <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %> 
 </body>
 
 </html>
