@@ -5,5 +5,12 @@
   "email": "agustin@gmail.com",
   "password": "$2b$10$ulw4ofL1FulrlXIuIcH4KuP37rF066hQuLWfZ08Wsv.QfgYFOQqg6",
   "image": ""
+ },
+ {
+  "id": 2,
+  "name": "Yhoxin Leonel Rossell",
+  "email": "yhoxin79@gmail.com",
+  "password": "$2b$10$9NVBnghlEpGk7X01QH8R2uQIK3I4q7W4tafgx4Q1RtB0dFC6CxoTy",
+  "image": ""
  }
 ]

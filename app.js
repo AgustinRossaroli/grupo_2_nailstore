@@ -43,3 +43,7 @@ app.use(productsRouter);
 //USUARIOS
 const usersRouter = require("./routers/usersRouter");
 app.use(usersRouter);
+
+//MIDDLEWARES
+
+
