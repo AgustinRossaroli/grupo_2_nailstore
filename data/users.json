@@ -6,5 +6,13 @@
   "password": "$2b$10$wFIUvV2dPGbTNlnFfhbd4ORA6rU3bqc8XLQtKl63WvDJPb2XyZPC2",
   "born": "2000-08-26",
   "image": "1679187851608-paisa.jfif"
+ },
+ {
+  "id": 2,
+  "name": "seba",
+  "email": "ola@hotmail.com",
+  "password": "$2b$10$AX02Bx/LmM7lERJUhY/Qr.u3nMTbPMX0Nsh1xIhidO0655pXreyrG",
+  "born": "3232-04-12",
+  "image": "1679528954197-Nicole%20Avagliano1.jpg"
  }
 ]
