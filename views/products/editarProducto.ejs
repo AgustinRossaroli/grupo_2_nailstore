@@ -19,14 +19,13 @@
                         <div class="flecha"></div>
                     </div>
                 </a>
-                <form class="form" method="post" action="/editar?_method=PUT">
+                <form class="form" method="post" action="/editar?_method=PUT" enctype="multipart/form-data">
                     <div id="imagen">
                         <img class="img" src="/images/<%=editarProducto.image%>" alt="">
                         <input id="input" type="file" name="imagen" value="<%=editarProducto.image%>">
                     </div>
                     <div class="item" id="id">
-                        <label for="">ID</label>
-                        <p id="id"><%=editarProducto.id%></p>
+                        <input type="hidden" name="id" value="<%=editarProducto.id%>">
                     </div>
                     <div class="item" id="nombre">
                         <label for="">Nombre</label>

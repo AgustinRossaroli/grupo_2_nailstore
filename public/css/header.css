@@ -21,7 +21,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: solid 1px;
+    border: solid 1px black;
     height: fit-content;
     width: 20%;
 }
@@ -39,13 +39,14 @@ header {
 .search-icon{
     padding: 5px;
 }
-.logo-box{
-    width: 25%;
-}
 .logo{
-    width: 100%;
+    width: fit-content;
     font-family: 'Aboreto', cursive;
     font-size: 40px;
+    transition: transform 0.1s ease-in-out;
+}
+.logo:hover {
+    transform: scale(1.2);
 }
 img{
     width: 100%;
@@ -73,6 +74,10 @@ a{
 .cart-icon{
     border: solid 1px;
     padding: 5px;
+    transition: transform 0.1s ease-in-out;
+}
+.cart-icon:hover {
+    transform: scale(1.2);
 }
 .userImage {
     border-radius: 30px;
@@ -91,12 +96,17 @@ a{
 }
 .list-option {
     margin: auto;
+    color: #000;
+    transition: transform 0.1s ease-in-out;
 }
 .userProfile {
     display: flex;
 }
 .navMenu {
     display: none; 
+}
+.list-option:hover {
+    transform: scale(1.2);
 }
 
 @media (max-width: 1200px) {
