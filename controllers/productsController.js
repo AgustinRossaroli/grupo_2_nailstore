@@ -14,7 +14,7 @@ const productsController = {
             res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": productsController.getAllProducts() });
     },
     carrito: (req, res) => {
-            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": products });
+            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": productsController.getAllProducts()  });
     },
     productCreator: (req, res) => {
             res.render(path.resolve(__dirname, "../views/products/productCreator"), {"referer": req.headers.referer});
