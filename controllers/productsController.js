@@ -2,7 +2,7 @@ const { resolveMx } = require("dns");
 const { json } = require("express");
 const path = require("path");
 const fs = require("fs");
-const products = require("../data/products1.json");
+// const products = require("../data/products1.json");
 
 const productsController = {
     filename: path.join(__dirname, "../data/products1.json"),
@@ -11,10 +11,10 @@ const productsController = {
         return JSON.parse(fs.readFileSync(productsController.filename, "utf-8"));
     },
     shop: (req, res) => {
-            res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": products });
+            res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": productsController.getAllProducts() });
     },
     carrito: (req, res) => {
-            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": products });
+            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": productsController.getAllProducts()  });
     },
     productCreator: (req, res) => {
             res.render(path.resolve(__dirname, "../views/products/productCreator"), {"referer": req.headers.referer});
@@ -56,12 +56,16 @@ const productsController = {
     confirmarEdicion: (req, res) => {
         let allProducts = productsController.getAllProducts();
 
+        let product = allProducts.find((product) => {
+            return product.id == req.body.id;
+        })
+
         const {nombre, descripcion, categoria, precio, imagen} = req.body
 
-        // let img = imagen ? imagen : allProducts[req.body.id].image;
+        let img = imagen ? imagen : product.image;
 
         const productoEditado = allProducts.map(i => {
-            if (i.id == req.body.asda) {
+            if (i.id == req.body.id) {
                 i.name = nombre;
                 i.description = descripcion;
                 i.image = img;

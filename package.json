@@ -12,5 +12,23 @@
     "express-validator": "^6.15.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1"
-  }
+  },
+  "name": "grupo_2_nailstore",
+  "description": "Sobre el proyecto (Nailstore)",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgustinRossaroli/grupo_2_nailstore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgustinRossaroli/grupo_2_nailstore/issues"
+  },
+  "homepage": "https://github.com/AgustinRossaroli/grupo_2_nailstore#readme"
 }
