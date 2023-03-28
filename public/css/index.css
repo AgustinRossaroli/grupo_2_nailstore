@@ -25,6 +25,16 @@ body {
     margin: 30px;
     width: 14%;
     background-color: white;
+    transition: transform 0.1s ease-in-out;
+}
+.product-box:hover {
+    transform: scale(1.1);
+}
+.product-box:hover .agregarCart{
+    display: inline;
+}
+.agregarCart {
+    display: none;
 }
 .product-image{
     width: fit-content;
@@ -64,4 +74,20 @@ h1 {
     left: 23%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     margin-top: 2px;
+}
+#cartPlus {
+    display: none;
+    position: relative;
+    bottom: 120%;
+    left: 40%;
+    font-size: 20px;
+    color: rgb(25, 63, 25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);    
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+}
+.product-box:hover #cartPlus{
+    display: inline-block;
 }
