@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require('bcrypt');
+const { validationResult } = require("express-validator");
 
 const usersController = {
     filename: path.join(__dirname, "../data/users.json"),
@@ -13,6 +14,11 @@ const usersController = {
         res.render(path.resolve(__dirname, "../views/users/login.ejs"));
     },
     loginUser: (req, res) => {
+        const result = validationResult(req);
+        const errors = !result.isEmpty();
+        if (errors){
+            return res.render(path.resolve(__dirname, "../views/users/login.ejs"), {error: result.mapped(), old: req.body });
+        }
         const { password, email } = req.body;
         const users = usersController.getAllUsers();
 
