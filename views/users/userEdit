@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/editarProducto.css">
+    <%- include('../partials/head.ejs') %>
+        <title>EditarProducto</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <main>
+            <article class="articulo">
+                <a href="<%= referer %>">
+                    <div class="contenedor">
+                        <div class="flecha"></div>
+                    </div>
+                </a>
+                <form class="form" method="post" action="/editar?_method=PUT" enctype="multipart/form-data">
+                    <div id="imagen">
+                        <img class="img" src="/images/<%=editarProducto.image%>" alt="">
+                        <input id="input" type="file" name="imagen" value="<%=editarProducto.image%>">
+                    </div>
+                    <div class="item" id="id">
+                        <input type="hidden" name="id" value="<%=editarProducto.id%>">
+                    </div>
+                    <div class="item" id="nombre">
+                        <label for="">Nombre</label>
+                        <input class="input" type="text" maxlength="32" name="nombre" value="<%= editarProducto.name%>">
+                    </div>
+                    <div class="item" id="email">
+                        <label for="">email</label>
+                        <input class="input" type="number" maxlength="20" name="email" value="<%= editarProducto.price%>">
+                    </div>
+                    <div class="item" id="descripcion">
+                        <label for="">Descripcion</label>
+                        <input id="desc" class="input" type="text" maxlength="300" name="descripcion" value="<%= editarProducto.description%>">
+                    </div>
+                    <div class="item" id="categoria">
+                        <label for="">Categoria</label>
+                        <input class="input" type="text" maxlength="25" name="categoria" value="<%= editarProducto.category%>">
+                    </div>
+                    <button type="submit" class="boton">Confirmar cambios</button>
+                </form>
+            </article>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
