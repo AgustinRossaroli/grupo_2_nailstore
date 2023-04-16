@@ -13,7 +13,11 @@ const productsController = {
             })
     },
     carrito: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": productsController.getAllProducts() });
+        db.Products.findAll().then((products) => {
+            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), {
+              "allProducts": products,
+            });
+          });    
     },
     productCreator: (req, res) => {
         res.render(path.resolve(__dirname, "../views/products/productCreator"), { "referer": req.headers.referer });
@@ -31,7 +35,7 @@ const productsController = {
             price
         })
             .then(newProduct => {
-                return res.status(201).json(newProduct);
+                return res.redirect("/shop");
             })
             .catch(error => {
                 console.log(error);
@@ -48,6 +52,10 @@ const productsController = {
                     "referer": req.headers.referer
                 });
             })
+            .catch(error => {
+                console.log(error);
+                return res.status(500).json({ message: `Error al crear el producto: ${error.message}` });
+            });
     },
     confirmarEdicion: (req, res) => {
         const { nombre, descripcion, categoria, precio, imagen } = req.body;
@@ -61,7 +69,7 @@ const productsController = {
             where: { id: req.body.id }
         })
             .then((data) => {
-                return res.status(201).json(data);
+                res.redirect("/shop")
             })
             .catch(error => {
                 console.log(error);
@@ -84,7 +92,7 @@ const productsController = {
 
         db.Products.destroy({ where: { id } })
             .then(() => {
-                res.send("Registro eliminado");
+                res.redirect("/shop")
             })
             .catch((error) => {
                 res.send('Error al eliminar registro:', error);
