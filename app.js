@@ -30,17 +30,27 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false },
     maxAge: Date.now() + (1 * 86400 * 1000) 
-}));
+}));    
 
 //VARIABLES COMUNES
-const {mainController} = require("./controllers/mainController");
+const db = require("./database/models")
 app.use(function(req, res, next) {
-    const email = req.session.email;
- 
-    const user = mainController.getAllUsers().find((i) => i.email == email);
-
-    res.locals.user = user;
-    next();
+    const userEmail = req.session.email; 
+    
+    if (userEmail) {
+    db.Users.findOne({where: {email: userEmail}})
+        .then(user => {
+            res.locals.user = user;
+            next();
+        })
+        .catch(error => {
+            console.log(error)
+            next();
+        })
+    } else {
+        res.locals.user = null;
+        next()
+    }
 });
 
 //MAIN

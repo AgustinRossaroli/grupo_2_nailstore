@@ -24,6 +24,7 @@ body {
     flex-direction: column;
     margin: 30px;
     width: 14%;
+    min-width: 200px;
     background-color: white;
     transition: transform 0.1s ease-in-out;
 }
@@ -69,11 +70,13 @@ h1 {
     border-top: none;
     border-radius: 5px;
     width: 50%;
+    min-width: 400px;
     height: 15rem;
-    position: relative;
-    left: 23%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    margin-top: 2px;
+    margin: 2px auto;
+}
+#banner img {
+    height: 15rem;
 }
 #cartPlus {
     display: none;
@@ -90,4 +93,47 @@ h1 {
 }
 .product-box:hover #cartPlus{
     display: inline-block;
+}
+@media (max-width: 1200px) {
+    #product1 {
+        display: none;
+    }
+    #product13 {
+        display: none;
+    }
+
+}
+@media (max-width: 797px) {
+    #product1 {
+        display: none;
+    }
+    #product13 {
+        display: none;
+    }
+    #product2 {
+        display: none;
+    }
+    #product14 {
+        display: none;
+    }
+}
+@media (max-width: 509px) {
+    #product1 {
+        display: none;
+    }
+    #product13 {
+        display: none;
+    }
+    #product2 {
+        display: none;
+    }
+    #product14 {
+        display: none;
+    }
+    #product3 {
+        display: none;
+    }
+    #product15 {
+        display: none;
+    }
 }
