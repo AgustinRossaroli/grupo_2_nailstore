@@ -2,91 +2,93 @@ const { resolveMx } = require("dns");
 const { json } = require("express");
 const path = require("path");
 const fs = require("fs");
-// const products = require("../data/products1.json");
+const db = require("../database/models");
+const { log } = require("console");
 
 const productsController = {
-    filename: path.join(__dirname, "../data/products1.json"),
-
-    getAllProducts: () => {
-        return JSON.parse(fs.readFileSync(productsController.filename, "utf-8"));
-    },
     shop: (req, res) => {
-            res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": productsController.getAllProducts() });
+        db.Products.findAll()
+            .then(data => {
+                return res.render(path.join(__dirname, "../views/products/shop"), { "allProducts": data });
+            })
     },
     carrito: (req, res) => {
-            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": productsController.getAllProducts()  });
+        res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), { "allProducts": productsController.getAllProducts() });
     },
     productCreator: (req, res) => {
-            res.render(path.resolve(__dirname, "../views/products/productCreator"), {"referer": req.headers.referer});
+        res.render(path.resolve(__dirname, "../views/products/productCreator"), { "referer": req.headers.referer });
     },
     postProductCreator: (req, res) => {
-        const product = productsController.getAllProducts();
+        const { name, description, category, price } = req.body;
 
-        const {name, description, category, price} = req.body;
-
-        const newId = product[product.length - 1].id + 1;
         let image = req.file ? req.file.filename : "productIMG.jpg";
 
-        const obj = {
-            id: newId,
+        db.Products.create({
             name,
             description,
-            image: image,
+            image,
             category,
             price
-        }
-
-        product.push(obj)
-
-        fs.writeFileSync(productsController.filename, JSON.stringify(product, null, " "));
-
-        res.redirect("/shop")
-    },
-    editarProducto: (req, res) => {
-            const { id } = req.params;
-            let allProducts = productsController.getAllProducts();
-
-            const editarProducto = allProducts.find(i => i.id == id);
-
-            res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), { 
-                "editarProducto": editarProducto,
-                "referer": req.headers.referer
+        })
+            .then(newProduct => {
+                return res.status(201).json(newProduct);
+            })
+            .catch(error => {
+                console.log(error);
+                return res.status(500).json({ message: `Error al crear el producto: ${error.message}` });
             });
     },
+    editarProducto: (req, res) => {
+        const { id } = req.params;
+
+        db.Products.findByPk(id)
+            .then(data => {
+                res.render(path.resolve(__dirname, "../views/products/editarProducto.ejs"), {
+                    "editarProducto": data,
+                    "referer": req.headers.referer
+                });
+            })
+    },
     confirmarEdicion: (req, res) => {
-        let allProducts = productsController.getAllProducts();
+        const { nombre, descripcion, categoria, precio, imagen } = req.body;
 
-        let product = allProducts.find((product) => {
-            return product.id == req.body.id;
+        db.Products.update({
+            name: nombre,
+            description: descripcion,
+            category: categoria,
+            price: precio
+        }, {
+            where: { id: req.body.id }
         })
-
-        const {nombre, descripcion, categoria, precio, imagen} = req.body
-
-        let img = imagen ? imagen : product.image;
-
-        const productoEditado = allProducts.map(i => {
-            if (i.id == req.body.id) {
-                i.name = nombre;
-                i.description = descripcion;
-                i.image = img;
-                i.category = categoria;
-                i.price = precio;
-            };
-            return i;
-        });
-        fs.writeFileSync(productsController.filename, JSON.stringify(productoEditado, null, " "));
-        res.redirect("producto/" + req.body.id);
+            .then((data) => {
+                return res.status(201).json(data);
+            })
+            .catch(error => {
+                console.log(error);
+                return res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
+            });
     },
     detalle: (req, res) => {
-            const { id } = req.params;
-            let allProducts = productsController.getAllProducts();
+        const { id } = req.params;
 
-            const detalle = allProducts.find(i => i.id == id);
+        db.Products.findByPk(id)
+            .then(product => {
+                res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), {
+                    "detalle": product,
+                    "referer": req.headers.referer
+                });;
+            })
+    },
+    delete: (req, res) => {
+        const { id } = req.params;
 
-            res.render(path.resolve(__dirname, "../views/products/detalleProducto.ejs"), { 
-                "detalle": detalle,
-                "referer": req.headers.referer 
-            });;
+        db.Products.destroy({ where: { id } })
+            .then(() => {
+                res.send("Registro eliminado");
+            })
+            .catch((error) => {
+                res.send('Error al eliminar registro:', error);
+            });
     }
 };
 

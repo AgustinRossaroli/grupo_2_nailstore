@@ -27,6 +27,8 @@ productsRouter.get("/carrito", rutasMW, productsController.carrito);
 productsRouter.get("/producto/:id", rutasMW, productsController.detalle);
 
 productsRouter.get("/editar/:id", rutasMW, productsController.editarProducto);
-productsRouter.put("/editar",upload.single("image"), productsController.confirmarEdicion)
+productsRouter.put("/editar",upload.single("image"), productsController.confirmarEdicion);
+
+productsRouter.post("/delete/:id", productsController.delete);
 
 module.exports = productsRouter;
