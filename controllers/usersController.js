@@ -20,23 +20,20 @@ const usersController = {
     },
     loginUser: (req, res) => {
         let  errors = validationResult(req);
-       
-        if (!errors.isEmpty()){
-            return res.render(path.resolve(__dirname, "../views/users/login.ejs"), {error: errors.mapped(), old: req.body });
-        }
         const { password, email } = req.body;
-        const users = usersController.getAllUsers();
-
-        const user = users.find(
-            (i) => i.email === email && bcrypt.compareSync(password, i.password)
-        );
-
-        if (user) {
+      db.User.findOne({
+        where: {
+            email: email,
+            password: bcrypt.compareSync(password, password)
+        }})
+        .then(() => {
             req.session.email = email;
-            res.redirect("/home");
-        } else {
-            res.send("Credenciales incorrectas.");
-      }
+            res.redirect('/home')
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).json({message: error.message})
+        })
       
     },
     signUp: (req, res) => {
