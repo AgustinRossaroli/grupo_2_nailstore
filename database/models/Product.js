@@ -25,6 +25,8 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     })
 
+    
+
     return Product
     
 }

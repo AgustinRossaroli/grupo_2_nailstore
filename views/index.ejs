@@ -13,12 +13,14 @@
 <body>
     <%- include('./partials/header.ejs') %>
         <main>
-            <img src="/images/nailBanner.jpg" alt="baner" id="banner">
+            <div id="banner">
+            <img src="/images/nailBanner.jpg" alt="baner">
+            </div>
             <h1>OFERTAS</h1>
             <div class="main">
                 <section class="product-section">
                     <% for (let i=1; i <=4; i++) { %>
-                        <div class="product-box">
+                        <div class="product-box" id="product<%=i%>">
                             <div class="product-image">
                                 <a href="/producto/<%=i%>">
                                     <img src="/images/<%=allProducts[i-1].image%>" alt="No responde">
@@ -41,7 +43,7 @@
             <h1>BASADO EN TUS BÚSQUEDAS</h1>
             <section class="product-section-personal">
                 <% for (let i=3; i < 7; i++) { %>
-                    <div class="product-box">
+                    <div class="product-box" id="product<%=i+10%>">
                         <div class="product-image">
                             <a href="/producto/<%=i%>">
                                 <img src="/images/<%=allProducts[i-1].image%>" alt="No responde">

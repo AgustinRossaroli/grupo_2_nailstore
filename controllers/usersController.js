@@ -73,24 +73,24 @@ const usersController = {
 
         res.redirect("/home");
     },
-    userDetail: (req,res) => {
-        const {id} = req.params;
+    userDetail: (req, res) => {
+        const { id } = req.params;
         const allUsers = usersController.getAllUsers();
 
         const user = allUsers.find((i) => i.id == id);
-        
+
         res.render(path.resolve(__dirname, "../views/users/userDetail.ejs"), {
             "user": user,
-            "referer": req.headers.referer 
+            "referer": req.headers.referer
         })
         
     },
-    logout: (req,res) => {
-        req.session.destroy(function(err) {
-            if(err) {
-              console.log(err);
+    logout: (req, res) => {
+        req.session.destroy(function (err) {
+            if (err) {
+                console.log(err);
             } else {
-              res.redirect('/home');
+                res.redirect('/home');
             }
         });
     },

@@ -1,3 +1,6 @@
+const { Model } = require("sequelize");
+const Product = require("./Product");
+
 module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define("User",{
         id: {
@@ -29,6 +32,11 @@ module.exports = (sequelize, dataTypes) => {
     })
 
     return User;
-}
+        timestamps: false
+    };
+
+    return User;
+
+
 
 
