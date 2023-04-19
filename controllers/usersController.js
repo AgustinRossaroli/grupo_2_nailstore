@@ -1,6 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require('bcrypt');
+const { validationResult } = require("express-validator");
+const db = require('../database/models');
+const { log } = require("console");
+
+
+
 
 const usersController = {
     filename: path.join(__dirname, "../data/users.json"),
@@ -10,25 +16,30 @@ const usersController = {
     },
 
     login: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/users/login.ejs"));
+        res.render(path. resolve(__dirname, "../views/users/login.ejs"),{error: null});
     },
     loginUser: (req, res) => {
+        let  errors = validationResult(req);
         const { password, email } = req.body;
-        const users = usersController.getAllUsers();
-
-        const user = users.find(
-            (i) => i.email === email && bcrypt.compareSync(password, i.password)
-        );
-
-        if (user) {
+      db.User.findOne({
+        where: {
+            email: email,
+            password: bcrypt.compareSync(password, password)
+        }})
+        .then(() => {
             req.session.email = email;
-            res.redirect("/home");
-        } else {
-            res.send("Credenciales incorrectas.");
-        }
+            res.redirect('/home')
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).json({message: error.message})
+        })
+      
     },
     signUp: (req, res) => {
         res.render(path.resolve(__dirname, "../views/users/signUp.ejs"));
+
+       
     },
     signUpUser: (req, res) => {
         const { name, email, password, born } = req.body;
@@ -41,6 +52,8 @@ const usersController = {
             } else {
                 return 1;
             }
+           
+        
         };
 
         let image = req.file ? req.file.filename : "fotoUser.jpg";
@@ -53,7 +66,7 @@ const usersController = {
             born: born,
             image: image
         };
-
+      
         user.push(obj);
 
         fs.writeFileSync(usersController.filename, JSON.stringify(user, null, " "));
@@ -70,6 +83,7 @@ const usersController = {
             "user": user,
             "referer": req.headers.referer
         })
+        
     },
     logout: (req, res) => {
         req.session.destroy(function (err) {
@@ -79,9 +93,35 @@ const usersController = {
                 res.redirect('/home');
             }
         });
-    }
-};
+    },
 
-module.exports = {
-    usersController,
-};
+      createUser: (req, res) => {
+        let image = req.file ? req.file.filename : "productIMG.jpg";
+          const newUsers= {
+            name : req.body.name,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password,10),
+            birthdate: req.body.born,
+            image: image,
+          }
+          
+          db.User.create(newUsers)
+          .then((newUser) =>{return res.redirect('/login')})
+          .catch((error) => res.send(error))
+        },
+     updateUser: (req, res) => {
+      let editUser ={
+        name : req.body.name,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password,10),
+        birthdate: req.body.born,
+        image: image,
+       }
+       db.User.update(editUser),{where: { id: req.params.id} }
+       .then(() =>{ res.redirect('/home')})
+       .catch((error) => res.send(error))
+     },
+}
+
+ module.exports = usersController
+    
