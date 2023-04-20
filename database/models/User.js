@@ -31,18 +31,17 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     })
 
-    User.associate =(models) => {
-        User.hasMany(models.Product, {
-            as:"product", foreignKey:"user_id"
+    return User;
+        timestamps: false
+    };
+
+ 
+      User.associate = (models) => {
+        User.hasMany(models.Products, {
+            as: "product",
+            foreignKey: "user_id"
         })
-    }
-   
-     return User
-      
-    }
-
+      }
     
-
-
-
-
+       return User;
+      }

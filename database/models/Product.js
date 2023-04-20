@@ -25,12 +25,12 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     })
 
-    Product.ass0ciate =(models) =>{
-        Product.belongsTo(models.Users,{
-            as:"User", foreignKey:"user_id"
+    Product.associate = (models) => {
+        Product.belongsTo(models.Users, {
+            as:"User",
+            foreignKey: "user_id"
         })
     }
 
     return Product
-    
 }
