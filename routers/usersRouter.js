@@ -30,6 +30,6 @@ usersRouter.get("/user/:id", rutasMW, usersController.userDetail)
 
  //Crud
 usersRouter.get('/users',usersController.getAllUsers);
-
+usersRouter.post("/delete/:id", usersController.delete);
 
 module.exports = usersRouter;

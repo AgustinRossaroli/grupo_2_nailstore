@@ -21,7 +21,7 @@ const usersController = {
     loginUser: (req, res) => {
         let  errors = validationResult(req);
         const { password, email } = req.body;
-      db.User.findOne({
+      db.Users.findOne({
         where: {
             email: email,
             password: bcrypt.compareSync(password, password)
@@ -121,6 +121,14 @@ const usersController = {
        .then(() =>{ res.redirect('/home')})
        .catch((error) => res.send(error))
      },
+      delete: function(req, res) {
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/home");
+      }
 }
 
  module.exports = usersController
