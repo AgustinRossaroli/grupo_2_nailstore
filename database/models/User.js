@@ -2,7 +2,7 @@ const { Model } = require("sequelize");
 const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
-    const User = sequelize.define("User",{
+    const User = sequelize.define("Users",{
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -30,18 +30,14 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "users",
         timestamps: false
     })
-
-    return User;
-        timestamps: false
-    };
-
  
-      User.associate = (models) => {
+    User.associate = (models) => {
         User.hasMany(models.Products, {
-            as: "product",
-            foreignKey: "user_id"
+          as: "product",
+          foreignKey: "user_id"
         })
       }
+      
     
        return User;
-      }
+    }
