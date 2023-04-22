@@ -1,3 +1,6 @@
+const { Model } = require("sequelize");
+const Product = require("./Product");
+
 module.exports = (sequelize, dataTypes) => {
     let User = sequelize.define("User",{
         id: {
@@ -27,7 +30,14 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "users",
         timestamps: false
     })
+ 
+    User.associate = (models) => {
+        User.hasMany(models.Products, {
+          as: "product",
+          foreignKey: "user_id"
+        })
+      }
+      
     
-    return User
-    
-}
+       return User;
+    }
