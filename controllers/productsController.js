@@ -2,7 +2,13 @@ const { resolveMx } = require("dns");
 const { json } = require("express");
 const path = require("path");
 const fs = require("fs");
+const db = require("../database/models")
 // const products = require("../data/products1.json");
+
+// db.Product.findAll()
+// .then((data)=>{
+//     console.log(data);
+// })
 
 const productsController = {
     filename: path.join(__dirname, "../data/products1.json"),
