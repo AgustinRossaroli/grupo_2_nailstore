@@ -49,7 +49,9 @@
                             </div>
                             <div class="admin">
                                 <a href="/editar/<%=allProducts[i].id%>" class="editar"><p class="editText">EDITAR</p></a>
-                                <button class="borrar"><p class="borrarText">BORRAR</p></button>
+                                <form class="borrar" action="/delete/<%=allProducts[i].id%>" method="post">
+                                    <button type="submit" class="borrarText"><p class="editText">BORRAR</p></button>
+                                </form>
                             </div>
                         </article>
                     </li>

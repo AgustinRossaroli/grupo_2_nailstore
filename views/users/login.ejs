@@ -25,12 +25,18 @@
                             </div>
                             <div>
                                 <input type="text" class="input" name="email" placeholder="Correo electrónico" />
+                                <%if (error && error.email) {%>
+                                    <p>Email invalido</p>
+                                    <%}%>
                             </div>
                             <div class="titles-box">
                                 <div class="titles">Contraseña</div>
                             </div>
                             <div>
-                                <input type="password" class="input" name="password" placeholder="Contraseña" />
+                                <input type="password" class="input" name="contrasena" placeholder="Contraseña" />
+                               <%if (error && error.password) {%>
+                                <p>Verifique la contraseña</p>
+                                <%}%>
                             </div>
                             <div>
                                 <div class="submit-botom">

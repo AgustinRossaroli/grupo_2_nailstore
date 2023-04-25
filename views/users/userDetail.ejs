@@ -13,21 +13,36 @@
 </head>
 
 <body>
+    
     <%- include('../partials/header.ejs') %>
     <main>
         <article class="articulo">
-            <div class="imgBox">
-                <img id="img-product" src="/images/<%=user.image%>" alt="">
-            </div>
-            <div class="edits">
-                <h4 class="h4">Nombre</h4>
-                <p class="p"><%=user.name%></p>
-                <h4 class="h4">Email</h4>
-                <p class="p"><%=user.email%></p>
-                <h4 class="h4">Fecha de nacimiento</h4>
-                <p class="p"><%=user.born%></p>
-                <a id="boton" href="<%= referer %>">Volver</a>
-            </div>
+            <a href="<%= referer %>">
+                <div class="contenedor">
+                    <div class="flecha"></div>
+                </div>
+            </a>
+            <form class="edits" method="post" action="/user?_method=PUT" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%=user.id%>">
+                <div class="imgBox">
+                    <img id="img-product" src="/images/<%=user.image%>" alt="asd">
+                    <input type="file" name="imagen" value="<%=user.image%>"></input>
+                </div>
+                <div class="dataForm">
+                    <label for="nombre" class="h4">Nombre</label>
+                    <input name="nombre" type="text" class="p" value="<%=user.name%>"></input>
+                    <label for="email" class="h4">Email</label>
+                    <input name="email" type="email" class="p" value="<%=user.email%>"></input>
+                    <label for="fecha" class="h4">Fecha de nacimiento</label>
+                    <input name="fecha" type="date" class="p" value="<%=user.birthdate%>"></input>
+                    <label for="contraseña" class="h4">Contraseña</label>
+                    <input type="password" name="contrasena" class="p"></input>
+                    <button type="submit" class="boton">Confirmar cambios</button>
+                </div>
+            </form>
+            <form class="borrar" action="/deleteUser/<%=user.id%>" method="post">
+                <button type="submit" class="borrarText"><p class="editText">BORRAR</p></button>
+            </form>
         </article>
     </main>
     <%- include('../partials/footer.ejs') %>
