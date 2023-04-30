@@ -13,7 +13,7 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <div class="main-div">
-            <form class="form" action="/shop/product-creator" method="POST" enctype="multipart/form-data">
+            <form class="form" action="/shop/product-creator" method="POST" enctype="multipart/form-data" id="form">
                 <div class="main-title">
                     Crea tu Producto
                 </div>
@@ -22,16 +22,18 @@
                         <label for="">Nombra a tu Producto</label>
                     </div>
                     <div class="div-input">
-                        <input type="text" name="name" id="">
+                        <input type="text" name="name" id="name-input">
                     </div> 
+                    <small id="name-warn"></small>
                 </div>
                 <div class="div-box">
                     <div class="div-title">
                         <label for="">Describe tu Producto</label>
                     </div>
                     <div class="div-input">
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="desc-input" cols="30" rows="10"></textarea>
                     </div>
+                    <small id="desc-warn"></small>
                 </div>
                 <div class="div-box">
                     <div class="div-title">
@@ -39,36 +41,40 @@
                     </div>
                     <div class="div-input-check">
                         <div>
-                            <input type="radio" name="category" value="Producto" id="">Producto    
+                            <input type="radio" name="category" value="Producto" id="radio-input">Producto   
                         </div>
                         <div>
-                            <input type="radio" name="category" value="Servicio" id="">Servicio
+                            <input type="radio" name="category" value="Servicio" id="radio-input">Servicio
                         </div>
                     </div>
+                    <small id="categ-warn"></small>
                 </div>
                 <div class="div-box">
                     <div class="div-title">
                         <label for="">Define el Precio de tu Producto</label>
                     </div>
                     <div class="div-input">
-                        <input type="number" name="price" id="">
+                        <input type="number" name="price" id="prize-input">
                     </div>
+                    <small id="prize-warn"></small>
                 </div>
                 <div class="div-box">
                     <div class="div-title">
                         <label for="">Agrega una Imagen a tu Producto</label>
                     </div>
                     <div class="div-input">
-                        <input type="file" name="image" id="">
+                        <input type="file" name="image" id="image-input">
                     </div>
+                    <small id="image-warn"></small>
                 </div>
                 <div class="buton-box">
-                    <input type="submit" value="Crear Producto">
+                    <input type="submit" value="Crear Producto" id="snd-btn">
                 </div>
                 <a id="boton" href="<%= referer %>">Volver</a>
             </form>
         </div>
     </main>
     <%- include('../partials/footer.ejs') %>
+    <script src="/formsValidations/creatorValidator.js"></script>
 </body>
 </html>

@@ -92,6 +92,9 @@ a{
     border-radius: 5px;
     margin: 5px 0px 5px 0px;
 }
+small{
+    color: red;
+}
 @media(max-width: 768px) {
     .login-image{
         display: none;

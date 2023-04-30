@@ -1,10 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-=======
     "password": null,
->>>>>>> programacion
     "password": "",
     "database": "nailstore",
     "host": "127.0.0.1",
