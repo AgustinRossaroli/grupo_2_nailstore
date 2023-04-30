@@ -20,6 +20,10 @@ window.addEventListener("load", () => {
         }
         if(prizeInput.value.length < 1){
             errors.prize = "Debes asignar un precio al producto"
+        }       
+        if(imageInput.value.length < 1){
+            imageInput.value.toUpperCase().includes(".JPG" || ".JEPG" || ".PNG" || ".GIF")
+            errors.image = "Debes ingresar un archivo valido (.JPG, .JEPG , .PNG, .GIF)"
         }
         if(Object.keys(errors).length >= 1){
 //            document.getElementById("categ-warn").innerText = (errors.category) ? errors.category : " "
