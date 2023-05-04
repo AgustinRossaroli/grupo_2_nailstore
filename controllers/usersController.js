@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const { log } = require("console");
-const { use } = require("../routers/usersRouter");
+
 
 const usersController = {
     login: (req, res) => {
