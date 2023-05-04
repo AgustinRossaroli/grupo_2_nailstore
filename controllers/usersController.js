@@ -3,8 +3,6 @@ const fs = require("fs");
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const { log } = require("console");
-
 
 const usersController = {
     login: (req, res) => {

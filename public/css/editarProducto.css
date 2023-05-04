@@ -3,20 +3,17 @@
     margin: 0px;
     padding: 0px;
 }
-
 body {
     font-family: "Roboto", sans-serif;
     background-image: url("/images/fondo2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 main {
     height: 68vh;
     max-width: 100vw;
     max-height: 66.5vh;
 }
-
 .articulo {
     display: flex;
     height: 80%;
@@ -28,45 +25,37 @@ main {
     border-radius: 100px;
     padding: 20px;
 }
-
 .img {
     height: 400px;
     max-width: 400px;
     margin-bottom: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 #input {
     margin-left: 1rem;
 }
-
 p {
     max-width: 300px;
 }
-
 .precio {
     font-size: 40px;
     margin-bottom: 30px;
 }
-
 .form {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-
 #imagen {
     width: 400px;
     margin-left: 60px;
     margin-bottom: 30px;
 }
-
 .item {
     margin-left: 20px;
     margin-bottom: 15px;
 }
-
 .input {
     border: 2px solid #f7c5cd;
     border-radius: 5px;
@@ -76,24 +65,20 @@ p {
     font-size: 16px;
     display: block;
 }
-
 .input:focus {
     outline: none;
     border-color: #f1959b;
     box-shadow: 0 0 5px #f1959b;
 }
-
 #desc {
     height: 68px;
 }
-
 #id {
     background-color: #FFEBEE;
     font-size: x-large;
     display: inline;
     font-weight: bold;
 }
-
 #id input {
     border: none;
     display: inline;
@@ -102,7 +87,6 @@ p {
     width: 25px;
     text-align: center;
 }
-
 .boton {
     margin-top: 10px;
     margin-left: 20px;
@@ -116,21 +100,9 @@ p {
     border-color: #FFEBEE;
     letter-spacing: 1px;
 }
-
 label {
     font-weight: bold;
 }
-
-footer {
-    background-color: #FFEBEE;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-    padding: 11px;
-    font-family: "Roboto", sans-serif;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-}
-
 #botton {
     height: 30px;
     width: fit-content;
@@ -142,7 +114,6 @@ footer {
     border-color: #FFEBEE;
     letter-spacing: 1px;
 }
-
 .contenedor {
     margin-top: 130px;
     width: 30px;
@@ -152,7 +123,6 @@ footer {
     box-shadow: 0 0 10px rgba(6, 6, 4, 0.3);
     background-color: #FFEBEE;
 }
-
 .flecha {
     position: absolute;
     top: 42%;
@@ -163,4 +133,7 @@ footer {
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-right: 10px solid black;
+}
+small{
+    color: red;
 }

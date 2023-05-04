@@ -17,6 +17,20 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <article class="articulo">
+<<<<<<< HEAD
+            <div class="imgBox">
+                <img id="img-product" src="/images/<%=user.image%>" alt="No responde">
+            </div>
+            <div class="edits">
+                <h4 class="h4">Nombre</h4>
+                <p class="p"><%=user.name%></p>
+                <h4 class="h4">Email</h4>
+                <p class="p"><%=user.email%></p>
+                <h4 class="h4">Fecha de nacimiento</h4>
+                <p class="p"><%=user.born%></p>
+                <a id="boton" href="<%= referer %>">Volver</a>
+            </div>
+=======
             <a href="<%= referer %>">
                 <div class="contenedor">
                     <div class="flecha"></div>
@@ -43,6 +57,7 @@
             <form class="borrar" action="/deleteUser/<%=user.id%>" method="post">
                 <button type="submit" class="borrarText"><p class="editText">BORRAR</p></button>
             </form>
+>>>>>>> programacion
         </article>
     </main>
     <%- include('../partials/footer.ejs') %>

@@ -25,12 +25,5 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     })
 
-    Product.associate = (models) => {
-        Product.belongsTo(models.Users, {
-            as:"User",
-            foreignKey: "user_id"
-        })
-    }
-
     return Product
 }

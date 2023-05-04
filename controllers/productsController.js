@@ -3,7 +3,6 @@ const { json } = require("express");
 const path = require("path");
 const fs = require("fs");
 const db = require("../database/models");
-const { log } = require("console");
 
 const productsController = {
     shop: (req, res) => {
