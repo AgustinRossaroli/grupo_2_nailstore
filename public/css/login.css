@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -55,6 +55,7 @@ form{
     position: relative;
     left: 30px;
     margin-right: 60px;
+    box-sizing: border-box;
 }
 input:focus{
     outline: none;
@@ -95,5 +96,19 @@ a{
     padding: 10px 20px;
     border-radius: 5px;
     margin-left: 30px;
+
 }
-  
+  .input:focus {
+    border: 1px solid #F8BBD0;
+  }
+  .boton:hover {
+    background-color: #ee6e9b;
+  }
+  #password:hover {
+    color: #ee6e9b;
+    border-color: #ee6e9b;
+  }
+  #register:hover {
+    color: #ee6e9b;
+    border-color: #ee6e9b;
+  }

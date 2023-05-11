@@ -26,11 +26,11 @@ module.exports = (sequelize, dataTypes) => {
     })
 
     Product.associate = (models) => {
-        Product.belongsTo(models.Users, {
-            as:"User",
-            foreignKey: "user_id"
-        })
-    }
+        Product.belongsToMany(models.Carts, {
+            through: 'Cart_products',
+            foreignKey: 'product_id'
+        });
+    };
 
     return Product
 }

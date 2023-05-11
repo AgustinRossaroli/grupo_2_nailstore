@@ -131,3 +131,11 @@ input[type="file"]::-webkit-file-upload-button {
 #image {
     color: transparent;
 }
+
+#boton:hover {
+    background-color: white;
+    color: black;
+}
+h3 a:hover {
+    color: white;
+}

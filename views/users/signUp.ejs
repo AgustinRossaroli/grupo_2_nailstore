@@ -17,20 +17,20 @@
             <h3>¿Ya estás registrado? <a href="/login">Ingresá aquí</a></h3>
             <form action="/signUp" method="post" class="form" enctype="multipart/form-data">
                 <div class="formItem">
-                    <label for="Nombre">NOMBRE</label>
-                    <input class="formBar" type="text" name="name" placeholder="Nombre y apellido">
+                    <label for="Nombre">NOMBRE DE USUARIO</label>
+                    <input required class="formBar" type="text" name="name" placeholder="Nombre de usuario">
                 </div>
                 <div class="formItem">
                     <label for="email">EMAIL</label>
-                    <input class="formBar" type="email" name="email" placeholder="hello@gmail.com">
+                    <input required class="formBar" type="email" name="email" placeholder="hello@gmail.com">
                 </div>
                 <div class="formItem">
                     <label for="password">CONTRASEÑA</label>
-                    <input class="formBar" type="password" name="contrasena" placeholder="Contraseña">
+                    <input required class="formBar" type="password" name="contrasena" placeholder="Contraseña">
                 </div>
                 <div class="formItem">
                     <label>FECHA DE NACIMIENTO</label>
-                    <input class="formBar" type="date" name="born">
+                    <input required class="formBar" type="date" name="born">
                 </div>
                 <div class="formItem">
                     <label>FOTO DE PERFIL</label>
