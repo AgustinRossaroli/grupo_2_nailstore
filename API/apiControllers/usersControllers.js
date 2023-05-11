@@ -1,5 +1,13 @@
 const allUsers = (req, res) => {
-    res.send ("Lista de Usuarios")
+    res.json ({
+        users:[
+            {
+                id: 1,
+                nombre: " yhoxin"
+
+            }
+        ]
+    })
 }
 
 module.exports = {
