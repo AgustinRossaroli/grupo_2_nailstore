@@ -1,5 +1,5 @@
 const { Model } = require("sequelize");
-const Product = require("./Product");
+
 
 module.exports = (sequelize, dataTypes) => {
     let User = sequelize.define("Users",{
