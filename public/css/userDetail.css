@@ -150,9 +150,10 @@ footer {
     box-shadow: 0 0 20px rgba(255, 192, 203, 0.975);
     height: 35px;
     border-radius: 20px;
-    width: 300px;
+    width: 100px;
     position: relative;
-    right: 48%;
+    left: 30px;
+    bottom: 15px;
 }
 .borrarText {
     border: none;
@@ -162,4 +163,16 @@ footer {
 
 .editText {
     font-weight: bold;
+}
+
+.borrarText:hover {
+    color: red;
+}
+
+.borrar:hover {
+    box-shadow: 0 0 20px rgba(255, 47, 0, 0.6);
+}
+
+.boton:hover {
+    color: rgb(242, 184, 205);
 }

@@ -2,7 +2,7 @@ const { Model } = require("sequelize");
 const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
-    let User = sequelize.define("Users",{
+    const User = sequelize.define("Users",{
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -30,6 +30,12 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "users",
         timestamps: false
     })
- 
+
+    User.associate = (models) => {
+        User.hasOne(models.Carts, {
+            foreignKey: 'user_id'
+        });
+    };
+    
        return User;
     }
