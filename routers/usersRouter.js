@@ -20,6 +20,8 @@ const usersRouter = express.Router();
 usersRouter.get("/login", usersController.login);
 usersRouter.post("/login",validaciones, usersController.loginUser); //validaciones
 
+usersRouter.get("/reset-password", usersController.resetPassword)
+
 usersRouter.get("/signUp", usersController.signUp);
 usersRouter.post("/signUp", upload.single("image"), usersController.signUpUser);
 

@@ -13,4 +13,4 @@ app.use(express.json());
 app.use(morgan("dev"))
 app.use("/api/users", usersRouter)
 
-app.use("/products", productsRouter)
+app.use("/api",productsRouter)
