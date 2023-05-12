@@ -17,7 +17,7 @@
         <main>
             <section class="elementos">
                 <h2>ELEMENTOS EN TU CARRITO DE COMPRAS</h2>
-                <% for (let i = 1; i <= 3; i++) { %>
+                <% for (let i = 0; i < allProducts.length; i++) { %>
                 <div class="producto">
                     <img class="img" src="/images/<%=allProducts[i].image%>" alt="">
                     <div class="descripcion">

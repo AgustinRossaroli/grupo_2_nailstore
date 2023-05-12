@@ -4,6 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const db = require("../database/models");
 const { log } = require("console");
+const { isDataView } = require("util/types");
 
 const productsController = {
     shop: (req, res) => {
@@ -13,11 +14,64 @@ const productsController = {
             })
     },
     carrito: (req, res) => {
-        db.Products.findAll().then((products) => {
-            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), {
-              "allProducts": products,
+        db.Carts.findAll({
+            where: { user_id: res.locals.user.id },
+            include: [{ model: db.Products, as: "products", required: true}],
+            raw: true
+          })
+            .then(cart => {
+                console.log(cart)
+              if (!cart) {
+                // Si no hay carrito para este usuario, mostramos un mensaje
+                res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
+                  message: "Tu carrito está vacío."
+                });
+              } else {
+                const products = cart.map(cart => { 
+                    return {
+                        image: cart["products.image"],
+                        name: cart["products.name"],
+                        price: cart["products.price"]
+                    }
+                })
+                console.log(products)
+                // Si hay carrito, mostramos los productos que contiene
+                res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
+                  allProducts: products
+                });
+              }
+            })
+            .catch(error => {
+              console.log(error);
             });
-          });    
+    },
+    agregarCarrito: (req,res) => {
+        const { id } = req.params;
+        let user_id = res.locals.user.id;
+        
+        
+        db.Carts.create({user_id})
+            .then(data => {
+
+                let product_id = id;
+                let cart_id = data.id;
+
+                db.Cart_products.create({
+                    cart_id,
+                    product_id,
+                })
+                    .then(() => {
+                        res.redirect("/carrito")
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        res.status(500).json({ message: `Error al agregar el producto: ${error.message}` });
+                    });
+            })
+            .catch(error => {
+                console.log(error);
+                res.status(500).json({ message: `Error al agregar el producto: ${error.message}` });
+            });
     },
     productCreator: (req, res) => {
         res.render(path.resolve(__dirname, "../views/products/productCreator"), { "referer": req.headers.referer });
