@@ -25,5 +25,12 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     })
 
+    Product.associate = (models) => {
+        Product.belongsToMany(models.Carts, {
+            through: 'Cart_products',
+            foreignKey: 'product_id'
+        });
+    };
+
     return Product
 }

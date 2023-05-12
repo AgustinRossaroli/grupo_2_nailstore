@@ -32,7 +32,7 @@ main {
 }
 .imgBox {
     margin-top: 40px;
-    margin-left: 100px;
+    margin-left: 30px;
 }
 .edits {
     margin-left: 40px;
@@ -87,4 +87,33 @@ footer {
     background-image: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 192, 203, 0.5));
     border-color: #FFEBEE;
     letter-spacing: 1px;
+}
+
+#cartPlus {
+    left: 40%;
+    font-size: 20px;
+    color: rgb(25, 63, 25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);    
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+}
+
+#cartPlus button {
+    height: 100%;
+    width: 20px;
+    border: none;
+    background-color: white;
+}
+
+#cartPlus button:hover {
+    background-color: rgba(231, 226, 226, 0.852);
+}
+
+#cartPlus button i {
+    border: none;
 }

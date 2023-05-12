@@ -19,28 +19,25 @@
                         <img src="/images/Logo.jpg" alt="No responde" />
                     </div>
                     <div class="form-box">
-                        <form action="/login" method="post" id="form">
-                            <div class="welcome-title">Bienvenido!</div>
+                        <form action="/login" method="post">
                             <div class="titles-box">
                                 <div class="titles">Email</div>
                             </div>
-                            <div class="input-box">
-                                <input type="text" class="input" name="email" placeholder="Correo electrónico" id="email-input"/>
+                            <div>
+                                <input type="text" required class="input" name="email" placeholder="Correo electrónico" />
                                 <%if (error && error.email) {%>
                                     <p>Email invalido</p>
                                     <%}%>
                             </div>
-                            <small id="email-warning"></small>
                             <div class="titles-box">
                                 <div class="titles">Contraseña</div>
                             </div>
-                            <div class="input-box">
-                                <input type="password" class="input" name="contrasena" placeholder="Contraseña" id="password-input"/>
+                            <div>
+                                <input type="password" required class="input" name="contrasena" placeholder="Contraseña" />
                                <%if (error && error.password) {%>
                                 <p>Verifique la contraseña</p>
                                 <%}%>
                             </div>
-                            <small id="password-warning"></small>
                             <div>
                                 <div class="submit-botom">
                                     <button type="submit" class="boton" id="send-botom">Ingresar</button>
@@ -55,7 +52,7 @@
                 </div>
             </div>
         </main>
-        <%- include('../partials/footer.ejs') %>
-    <script src="/formsValidations/loginValidator.js"></script>
+        <%- include('../partials/footer.ejs') %> 
 </body>
+
 </html>

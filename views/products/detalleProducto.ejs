@@ -16,6 +16,9 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <article class="articulo">
+            <form id="cartPlus" action="/carrito/<%=detalle.id%>" method="post">
+                <button type="submit"><i class="fa-solid fa-cart-plus"></i></button>
+            </form>
             <div class="imgBox">
                 <img id="img-product" src="/images/<%=detalle.image%>" alt="">
             </div>
