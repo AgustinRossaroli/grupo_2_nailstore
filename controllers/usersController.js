@@ -51,6 +51,9 @@ const usersController = {
             })
             .catch((error) => res.send(error))
     },
+    resetPassword: (req, res) => {
+        res.render(path.resolve(__dirname, "../views/users/resetPassword.ejs"))
+    },
     editUser: (req, res) => {
         const { id } = req.params;
         
