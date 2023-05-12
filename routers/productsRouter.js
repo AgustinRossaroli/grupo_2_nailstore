@@ -23,6 +23,7 @@ productsRouter.get("/shop/product-creator", rutasMW, productsController.productC
 productsRouter.post("/shop/product-creator",upload.single("image"), productsController.postProductCreator)
 
 productsRouter.get("/carrito", rutasMW, productsController.carrito);
+productsRouter.post("/carrito/:id", productsController.agregarCarrito);
 
 productsRouter.get("/producto/:id", rutasMW, productsController.detalle);
 

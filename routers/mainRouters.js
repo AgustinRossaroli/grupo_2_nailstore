@@ -8,4 +8,6 @@ mainRouter.get("/home", mainController.main);
 
 mainRouter.get("/aboutUs", mainController.aboutUs);
 
+mainRouter.get("/search", mainController.search)
+
 module.exports = mainRouter;
