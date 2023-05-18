@@ -22,7 +22,6 @@ const productsController = {
             .then(cart => {
                 console.log(cart)
               if (!cart) {
-                // Si no hay carrito para este usuario, mostramos un mensaje
                 res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
                   message: "Tu carrito está vacío."
                 });
@@ -35,7 +34,6 @@ const productsController = {
                     }
                 })
                 console.log(products)
-                // Si hay carrito, mostramos los productos que contiene
                 res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
                   allProducts: products
                 });
@@ -147,6 +145,17 @@ const productsController = {
         db.Products.destroy({ where: { id } })
             .then(() => {
                 res.redirect("/shop")
+            })
+            .catch((error) => {
+                res.send('Error al eliminar registro:', error);
+            });
+    },
+    deleteCart: (req, res) => {
+        const { id } = req.params;
+
+        db.Cart.destroy({ where: { id } })
+            .then(() => {
+                res.redirect("/carrito")
             })
             .catch((error) => {
                 res.send('Error al eliminar registro:', error);

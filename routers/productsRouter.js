@@ -32,4 +32,6 @@ productsRouter.put("/editar",upload.single("image"), productsController.confirma
 
 productsRouter.post("/delete/:id", productsController.delete);
 
+productsRouter.post("/deleteCart/:id", productsController.deleteCart);
+
 module.exports = productsRouter;
