@@ -23,7 +23,7 @@ usersRouter.post("/login",validaciones, usersController.loginUser); //validacion
 usersRouter.get("/reset-password", usersController.resetPassword)
 
 usersRouter.get("/signUp", usersController.signUp);
-usersRouter.post("/signUp", upload.single("image"), usersController.signUpUser);
+usersRouter.post("/signUp", upload.single("imagen"), usersController.signUpUser);
 
 usersRouter.post('/logout', usersController.logout);
 
