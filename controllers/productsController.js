@@ -111,12 +111,17 @@ const productsController = {
     },
     confirmarEdicion: (req, res) => {
         const { nombre, descripcion, categoria, precio, imagen } = req.body;
+        let image = req.file ? req.file.filename : "productIMG.jpg";
+        // if(req.file){
+        //     update[image] = req.file.filename
+        // }
 
         db.Products.update({
             name: nombre,
             description: descripcion,
             category: categoria,
-            price: precio
+            price: precio,
+            image
         }, {
             where: { id: req.body.id }
         })
@@ -166,3 +171,16 @@ const productsController = {
 module.exports = {
     productsController
 };
+// const { name, price, stock } = req.body;
+// let updateProduct = {
+// 	name,
+// 	price,
+// 	stock,
+// };
+
+// if (req.file) {
+// 	updateProduct['image'] = req.file.filename;
+// }
+
+// db.product.update(updateProduct)
+

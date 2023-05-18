@@ -1,13 +1,12 @@
 window.addEventListener("load", () => {
-
     const nameInput = document.getElementById("name-input")
-    const imageInput = document.getElementById("image-input")
+    const imageInput = document.getElementById("input")
     const prizeInput = document.getElementById("prize-input")
     const descInput = document.getElementById("desc")
-    const categInput = document.getElementById("categ-input")
+//    const categInput = document.getElementById("categ-input")
     const sndBtn = document.getElementById("snd-btn")
     const form = document.getElementById("form")
-
+    console.log(imageInput);
     sndBtn.addEventListener("click", (e) => {
         e.preventDefault()
         let errors = {}
@@ -22,6 +21,7 @@ window.addEventListener("load", () => {
             errors.prize = "Debes asignar un precio al producto"
         }       
         if(imageInput.value.length < 1){
+            console.log(imageInput.value.length);
             imageInput.value.toUpperCase().includes(".JPG" || ".JEPG" || ".PNG" || ".GIF")
             errors.image = "Debes ingresar un archivo valido (.JPG, .JEPG , .PNG, .GIF)"
         }
