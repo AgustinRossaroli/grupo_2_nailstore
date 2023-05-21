@@ -16,9 +16,6 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <article class="articulo">
-            <form id="cartPlus" action="/carrito/<%=detalle.id%>" method="post">
-                <button type="submit"><i class="fa-solid fa-cart-plus"></i></button>
-            </form>
             <div class="imgBox">
                 <img id="img-product" src="/images/<%=detalle.image%>" alt="">
             </div>
@@ -31,6 +28,12 @@
                     <h5>Categoría: </h5>
                     <p class="p"><%= detalle.category%>.</p>
                 </div>
+                <form id="cartPlus" action="/carrito/<%=detalle.id%>" method="post">
+                    <button type="submit"><i class="fa-solid fa-cart-plus"></i>
+                        <div>Agregar al Carrito</div></button>
+                </form>
+            </div>
+            <div class="volver-box">
                 <a id="boton" href="<%= referer %>">Volver</a>
             </div>
         </article>

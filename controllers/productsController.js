@@ -171,16 +171,4 @@ const productsController = {
 module.exports = {
     productsController
 };
-// const { name, price, stock } = req.body;
-// let updateProduct = {
-// 	name,
-// 	price,
-// 	stock,
-// };
-
-// if (req.file) {
-// 	updateProduct['image'] = req.file.filename;
-// }
-
-// db.product.update(updateProduct)
 
