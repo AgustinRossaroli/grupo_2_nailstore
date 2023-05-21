@@ -10,29 +10,30 @@ body {
     background-size: cover;
 }
 main {
-    height: 68vh;
-    max-width: 100vw;
-    max-height: 66.5vh;
+    display: flex;
+    justify-content: center;
+}
+.back{
+    display: flex;
+    align-items: center;
 }
 .articulo {
     display: flex;
     height: 80%;
     width: 70%;
-    margin-left: 40px;
     background-color: #FFEBEE;
-    margin-top: 4rem;
+    margin: 30px;
     box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
-    border-radius: 100px;
+    border-radius: 50px;
     padding: 20px;
 }
 .img {
-    height: 400px;
     max-width: 400px;
     margin-bottom: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 #input {
-    margin-left: 1rem;
+    width: 100%;
 }
 p {
     max-width: 300px;
@@ -42,15 +43,18 @@ p {
     margin-bottom: 30px;
 }
 .form {
-    margin-top: 40px;
+    margin: 20px;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 #imagen {
-    width: 400px;
-    margin-left: 60px;
-    margin-bottom: 30px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.data{
+    width: 50%;
 }
 .item {
     margin-left: 20px;
@@ -115,7 +119,8 @@ label {
     letter-spacing: 1px;
 }
 .contenedor {
-    margin-top: 130px;
+    display: flex;
+    align-items: center;
     width: 30px;
     height: 200px;
     background-color: #ccc;
@@ -124,11 +129,8 @@ label {
     background-color: #FFEBEE;
 }
 .flecha {
-    position: absolute;
-    top: 42%;
-    left: 69px;
     transform: translateY(-50%);
-    width: 0;
+    width: 60%;
     height: 22px;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
@@ -136,4 +138,40 @@ label {
 }
 small{
     color: red;
+}
+@media(max-width: 768px){
+    .back{
+        display: none;
+    }
+    .form{
+        width: 90%;
+        flex-direction: column;
+    }
+    #imagen{
+        width: 100%;
+    }
+    .data{
+        width: 100%;
+    }
+    .articulo{
+        justify-content: center;
+    }
+}
+@media(max-width: 461px){
+    .articulo{
+        width: 90%;
+        margin: 10px;
+    }
+    .data{
+        width: 100%;
+    }
+    #imagen{
+        width: 90%;
+    }
+    .form{
+        align-items: center;
+    }
+    .back{
+        display: none;
+    }
 }
