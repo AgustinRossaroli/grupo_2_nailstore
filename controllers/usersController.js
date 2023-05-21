@@ -47,7 +47,7 @@ const usersController = {
           
           db.Users.create(newUsers)
             .then((newUser) => {
-                res.redirect("/home")
+                res.redirect("/login")
             })
             .catch((error) => res.send(error))
     },
