@@ -20,12 +20,19 @@
                 <h2>ELEMENTOS EN TU CARRITO DE COMPRAS</h2>
                 <% for (let i = 0; i < allProducts.length; i++) { %>
                 <div class="producto">
+                    <a href="/producto/<%=allProducts[i].id%>">
                     <img class="img" src="/images/<%=allProducts[i].image%>" alt="">
+                    </a>
                     <div class="descripcion">
                         <div class="nombre"><%=allProducts[i].name%></div>
                         <div class="precio">$ <%=allProducts[i].price%></div>
                     </div>
                 </div>
+                <form class="borrar" action="/deleteProduct/<%=allProducts[i].id%>" method="post">
+                    <button type="submit" class="button">
+                        <p class="editText">BORRAR</p>
+                    </button>
+                </form>
                 <% } %>
             </section>
             <section class="resumen">

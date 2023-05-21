@@ -65,17 +65,18 @@ h1 {
     opacity: 0.7;
     margin-top: 2rem;
 }
+
 #banner {
     border: 2px solid #ccc;
     border-top: none;
     border-radius: 5px;
-    width: 50%;
-    height: 15rem;
+    width: fit-content;
+    height: fit-content;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     margin: 2px auto;
 }
 #banner img {
-    height: 15rem;
+    height: 18rem;
 }
 #cartPlus {
     display: none;
@@ -93,6 +94,44 @@ h1 {
 .product-box:hover #cartPlus{
     display: inline-block;
 }
+.promocion {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  .promocion  p{
+    font-weight: normal;
+    opacity: 0.5;
+    margin-top: 5px;
+  }
+  #entregas {
+    background-color: #f0caf9;
+  }
+  #entregas:hover {
+    background-color: #eebef9;
+  }
+  
+  #descuento {
+    background-color: #f4d4fd;
+  }
+  #descuento:hover {
+    background-color: #f1c8fc;
+  }
+  
+  #retira {
+    background-color: #f4dafb;
+  }
+  #retira:hover {
+    background-color: #f0ccf9;
+  }
+  .video {
+    width: 100%;
+    height: 100%;
+  }
 @media (max-width: 1200px) {
     #product1 {
         display: none;
@@ -100,9 +139,8 @@ h1 {
     #product13 {
         display: none;
     }
-
 }
-@media (max-width: 797px) {
+@media (max-width: 858px) {
     #product1 {
         display: none;
     }
@@ -115,11 +153,8 @@ h1 {
     #product14 {
         display: none;
     }
-    #banner {
-        width: 100%;
-    }
 }
-@media (max-width: 509px) {
+@media (max-width: 540px) {
     #product1 {
         display: none;
     }
