@@ -3,6 +3,8 @@ const fs = require("fs");
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const { Op } = require('sequelize');
+
 
 const usersController = {
     login: (req, res) => {
@@ -112,17 +114,27 @@ const usersController = {
             }
         });
     },
-    delete: (req, res) => {
-        const { id } = req.params;
 
-        db.Users.destroy({ where: { id } })
-            .then(() => {
-                res.redirect("/home")
-            })
-            .catch((error) => {
-                res.send('Error al eliminar registro:', error);
-            });
+    delete: (req, res) => {
+      const { id } = req.params;
+    
+      db.Carts.findAll({ where: { user_id: id } })
+        .then(carts => {
+          const cartIds = carts.map(cart => cart.id);
+    
+          return db.Cart_products.destroy({
+            where: { cart_id: { [Op.in]: cartIds } }
+          }).then(() => db.Carts.destroy({ where: { user_id: id } }));
+        })
+        .then(() => db.Users.destroy({ where: { id } }))
+        .then(() => {
+          res.redirect("/home");
+        })
+        .catch((error) => {
+          res.send("Error al eliminar registro: " + error);
+        });
     }
+
 }
 
  module.exports = usersController
