@@ -8,11 +8,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .main-title {
     font-family: 'Aboreto', cursive;
     font-size: 30px;
@@ -30,12 +25,16 @@ main{
     background-color: aliceblue;
 }
 
+.arriba {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .articulo {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 80%;
-    width: 90%;
     margin-left: 40px;
     background-color: #FFEBEE;
     margin-top: 1rem;
@@ -43,8 +42,8 @@ main{
     box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
     border-radius: 50px;
     padding: 20px;
+    width: 90%;
 }
-
 #img-product {
     width: 100% !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -146,6 +145,7 @@ h5 {
 
 .editText {
     font-weight: bold;
+    margin-top: 7px;
 }
 
 .editar:active {

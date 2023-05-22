@@ -49,7 +49,7 @@ const usersController = {
           
           db.Users.create(newUsers)
             .then((newUser) => {
-                res.redirect("/login")
+                res.redirect("/home")
             })
             .catch((error) => res.send(error))
     },
@@ -68,43 +68,56 @@ const usersController = {
             })
     },
     postEditUser: (req, res) => {
-        const {nombre, email, fecha, contrasena, imagen, id} = req.body;
-
+        const { nombre, email, fecha, contrasena, id } = req.body;
+    
+        let image = req.file ? req.file.filename : null; 
+    
         if (contrasena.length > 0) {
-            db.Users.update({
-                name: nombre,
-                email: email,
-                birthdate: fecha,
-                password: bcrypt.hashSync(contrasena,10),
-                image: imagen
-            }, {
-                where: {id: id}
-            })
+            db.Users.findByPk(id)
+                .then((usuario) => {
+                    if (!image) {
+                        image = usuario.image;
+                    }
+    
+                    return usuario.update({
+                        name: nombre,
+                        email: email,
+                        birthdate: fecha,
+                        password: bcrypt.hashSync(contrasena, 10),
+                        image: image
+                    });
+                })
                 .then((data) => {
-                    res.redirect("/home");
+                    res.redirect("/home" + id);
                 })
                 .catch((error) => {
-                    console.log(error)
-                    res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
-                })
+                    console.log(error);
+                    res.status(500).json({ message: `Error al editar el usuario: ${error.message}` });
+                });
         } else {
-            db.Users.update({
-                name: nombre,
-                email: email,
-                birthdate: fecha,
-                image: imagen
-            }, {
-                where: {id: id}
-            })
+            db.Users.findByPk(id)
+                .then((usuario) => {
+                    if (!image) {
+                        image = usuario.image;
+                    }
+    
+                    return usuario.update({
+                        name: nombre,
+                        email: email,
+                        birthdate: fecha,
+                        image: image
+                    });
+                })
                 .then((data) => {
                     res.redirect("/home");
                 })
                 .catch((error) => {
-                    console.log(error)
-                    res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
-                })
+                    console.log(error);
+                    res.status(500).json({ message: `Error al editar el usuario: ${error.message}` });
+                });
         }
     },
+    
     logout: (req, res) => {
         req.session.destroy(function (err) {
             if (err) {

@@ -113,29 +113,35 @@ const productsController = {
             });
     },
     confirmarEdicion: (req, res) => {
-        const { nombre, descripcion, categoria, precio, imagen } = req.body;
-        let image = req.file ? req.file.filename : "productIMG.jpg";
-        // if(req.file){
-        //     update[image] = req.file.filename
-        // }
-
-        db.Products.update({
-            name: nombre,
-            description: descripcion,
-            category: categoria,
-            price: precio,
-            image
-        }, {
-            where: { id: req.body.id }
-        })
-            .then((data) => {
-                res.redirect("/shop")
+        const { nombre, descripcion, categoria, precio } = req.body;
+    
+        let image = req.file ? req.file.filename : null; 
+    
+        db.Products.findByPk(req.body.id)
+            .then((producto) => {
+                if (!image) {
+                    image = producto.image;
+                }
+                
+                return producto.update({
+                    name: nombre,
+                    description: descripcion,
+                    category: categoria,
+                    price: precio,
+                    image
+                });
             })
-            .catch(error => {
+            .then((data) => {
+                res.redirect("/shop");
+            })
+            .catch((error) => {
                 console.log(error);
-                return res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
+                return res
+                    .status(500)
+                    .json({ message: `Error al editar el producto: ${error.message}` });
             });
     },
+    
     detalle: (req, res) => {
         const { id } = req.params;
 

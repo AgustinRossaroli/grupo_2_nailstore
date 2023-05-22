@@ -15,14 +15,16 @@
 <body>
     <%- include('../partials/header.ejs') %>
         <main>
+            <div class="arriba">
             <div class="main-title">
                 Nuestra Tienda
             </div>
             <% if (user.admin == 1) { %>
             <a href="/shop/product-creator" class="create-buton"><i class="fa-solid fa-plus"></i> Crea tu Producto</a>
             <%}%>
+            </div>
             <% for(let i=0; i< allProducts.length; i++) {%>
-                <ul>
+                <ul class="ulArticles">
                     <li>
                         <article class="articulo">
                             <div class="imgBox">
