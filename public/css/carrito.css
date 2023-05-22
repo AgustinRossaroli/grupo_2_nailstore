@@ -13,6 +13,7 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    min-height: 70vh;
 }
 .elementos {
     display: flex;
@@ -51,7 +52,7 @@ h2 {
 .img {
     max-width: 250px;
     max-height: 250px;
-    border: 2px black solid;
+    box-shadow: 0 0 12px rgba(200, 158, 241, 0.751);
 }
 .unorderList li {
     font-size: 14px;
@@ -90,3 +91,81 @@ h2 {
     margin-top: 25px;
     margin-bottom: 20px;
 }
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 3rem;
+  }
+  
+  p {
+    margin-top: 2rem;
+  }
+
+  .container {
+    background-color: antiquewhite;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 10px;
+    box-shadow: 3px 3px 3px 3px rgba(169, 150, 81, 0.245);
+    text-align: center;
+  }
+
+  .container p a {
+    color: rgb(118, 177, 254);
+  }
+  #flechita {
+    display: none;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e8a6fc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button p {
+    margin: 0;
+  }
+  
+  .button:hover {
+    background-color: #b92963;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 1200px) {
+    .elementos {
+        width:max-content;
+        border: none;
+        display: none;
+    }
+    .resumen {
+        width: max-content;
+    }
+    #flechita {
+        display: block;
+        box-shadow: 0 0 10px rgba(169, 81, 165, 0.4);
+        height: fit-content;
+        padding: 5px;
+        padding-right: 6px;
+        background-color: pink;
+        margin-left: 10px;
+    }
+  }
+  @media (max-width: 570px) {
+    .img {
+        max-width: 150px;
+        max-height: 150px;
+        border: 2px black solid;
+    }
+    #flechita {
+        margin-left: 0;
+    }
+  }

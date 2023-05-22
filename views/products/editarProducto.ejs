@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/editarProducto.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/editarProducto.css" />
     <%- include('../partials/head.ejs') %>
         <title>EditarProducto</title>
 </head>
@@ -14,46 +14,54 @@
     <%- include('../partials/header.ejs') %>
         <main>
             <article class="articulo">
-                <a href="<%= referer %>">
+                <a href="<%= referer %>" class="back">
                     <div class="contenedor">
                         <div class="flecha"></div>
                     </div>
                 </a>
                 <form class="form" method="post" action="/editar?_method=PUT" enctype="multipart/form-data" id="form">
                     <div id="imagen">
-                        <img class="img" src="/images/<%=editarProducto.image%>" alt="">
-                        <input id="input" type="file" name="imagen" value="<%=editarProducto.image%>">
+                        <img class="img" src="/images/<%=editarProducto.image%>" alt="" />
+                        <input id="input" type="file" name="image" value="<%=editarProducto.image%>" />
                         <small id="image-warn"></small>
                     </div>
-                    <div class="item" id="id">
-                        <input type="hidden" name="id" value="<%=editarProducto.id%>">
+                    <div class="data">
+                        <div class="item" id="id">
+                            <input type="hidden" name="id" value="<%=editarProducto.id%>" />
+                        </div>
+                        <div class="item" id="nombre">
+                            <label for="">Nombre</label>
+                            <input class="input" type="text" maxlength="32" name="nombre"
+                                value="<%= editarProducto.name%>" id="name-input" />
+                            <small id="name-warn"></small>
+                        </div>
+                        <div class="item" id="precio">
+                            <label for="">Precio</label>
+                            <input class="input" type="number" maxlength="20" name="precio"
+                                value="<%= editarProducto.price%>" id="prize-input" />
+                            <small id="prize-warn"></small>
+                        </div>
+                        <div class="item" id="descripcion">
+                            <label for="">Descripcion</label>
+                            <input id="desc" class="input" type="text" maxlength="300" name="descripcion"
+                                value="<%= editarProducto.description%>" />
+                            <small id="desc-warn"></small>
+                        </div>
+                        <div class="item" id="categoria">
+                            <label for="">Categoria</label>
+                            <small id="categ-warn"></small>
+                            <input class="input" type="text" maxlength="25" name="categoria"
+                                value="<%= editarProducto.category%>" id="desc-input" />
+                        </div>
+                        <button type="submit" class="boton" id="snd-btn">
+                            Confirmar cambios
+                        </button>
                     </div>
-                    <div class="item" id="nombre">
-                        <label for="">Nombre</label>
-                        <input class="input" type="text" maxlength="32" name="nombre" value="<%= editarProducto.name%>" id="name-input">
-                        <small id="name-warn"></small>
-                    </div>
-                    <div class="item" id="precio">
-                        <label for="">Precio</label>
-                        <input class="input" type="number" maxlength="20" name="precio" value="<%= editarProducto.price%>" id="prize-input">
-                        <small id="prize-warn"></small>
-                    </div>
-                    <div class="item" id="descripcion">
-                        <label for="">Descripcion</label>
-                        <input id="desc" class="input" type="text" maxlength="300" name="descripcion" value="<%= editarProducto.description%>">
-                        <small id="desc-warn"></small>
-                    </div>
-                    <div class="item" id="categoria">
-                        <label for="">Categoria</label>
-                        <small id="categ-warn"></small>
-                        <input class="input" type="text" maxlength="25" name="categoria" value="<%= editarProducto.category%>" id="desc-input">
-                    </div>
-                    <button type="submit" class="boton" id="snd-btn">Confirmar cambios</button>
                 </form>
             </article>
         </main>
         <%- include('../partials/footer.ejs') %>
-        <script src="/formsValidations/detailValidator.js"></script>
+            <script src="/formsValidations/detailValidator.js"></script>
 </body>
 
 </html>

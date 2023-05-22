@@ -15,29 +15,41 @@
 <body>
     <%- include('../partials/header.ejs') %>
         <main>
+            <%if (allProducts.length > 0) {%>
             <section class="elementos">
                 <h2>ELEMENTOS EN TU CARRITO DE COMPRAS</h2>
                 <% for (let i = 0; i < allProducts.length; i++) { %>
                 <div class="producto">
+                    <a href="/producto/<%=allProducts[i].id%>">
                     <img class="img" src="/images/<%=allProducts[i].image%>" alt="">
+                    </a>
                     <div class="descripcion">
                         <div class="nombre"><%=allProducts[i].name%></div>
                         <div class="precio">$ <%=allProducts[i].price%></div>
                     </div>
                 </div>
+                <form class="borrar" action="/deleteProduct/<%=allProducts[i].id%>" method="post">
+                    <button type="submit" class="button">
+                        <p class="editText">BORRAR</p>
+                    </button>
+                </form>
                 <% } %>
             </section>
             <section class="resumen">
                 <h2>RESUMEN DE TU COMPRA</h2>
                 <ul class="unorderList">
-                    <li>NOMBRE DEL PRODUCTO $0000</li>
-                    <li>NOMBRE DEL PRODUCTO $0000</li>
-                    <li>NOMBRE DEL PRODUCTO $0000</li>
+                    <% for (let i = 0; i < allProducts.length; i++) { %>
+                    <li><%=allProducts[i].name%> <strong>$ <%=allProducts[i].price%></strong></li>
+                    <% } %>
                 </ul>
-                <div>
+                <div class="divResumen">
                     <div class="total">
                         <p id="total">TOTAL</p>
-                        <p id="precioTotal">$0000</p>
+                        <% let contador = 0; %>
+                        <% for (let i = 0; i < allProducts.length; i++) { %>
+                            <% contador += parseFloat(allProducts[i].price) %>
+                        <% } %>
+                        <p id="precioTotal">$ <%= contador %></p>
                     </div>
                     <div class="metodospago">IR A PAGAR AHORA</div>
                     <div class="irAPagar">
@@ -47,6 +59,15 @@
                     </div>
                 </div>
             </section>
+            <i id="flechita" class="fas fa-arrow-right"></i>
+            <%} else { %>
+            <div class="container">
+                <h1>¡No hay nada en tu carrito de compras!</h1>
+                <p>Debe agregar productos a su carrito para comprar.</p>
+                <p>Visite la <a href="/shop">tienda</a> para ver nuestros productos.</p>
+            </div>
+            <% } %>    
+        <script src="/formsValidations/carritoJs.js"></script>
         </main>
         <%- include('../partials/footer.ejs') %>
 </body>

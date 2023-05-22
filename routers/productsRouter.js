@@ -28,10 +28,10 @@ productsRouter.post("/carrito/:id", productsController.agregarCarrito);
 productsRouter.get("/producto/:id", rutasMW, productsController.detalle);
 
 productsRouter.get("/editar/:id", rutasMW, productsController.editarProducto);
-productsRouter.put("/editar",upload.single("imagen"), productsController.confirmarEdicion);
+productsRouter.put("/editar",upload.single("image"), productsController.confirmarEdicion);
 
 productsRouter.post("/delete/:id", productsController.delete);
 
-productsRouter.post("/deleteCart/:id", productsController.deleteCart);
+productsRouter.post("/deleteProduct/:id", productsController.deleteCart);
 
 module.exports = productsRouter;
