@@ -3,8 +3,8 @@ const fs = require("fs");
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const { log } = require("console");
-const { use } = require("../routers/usersRouter");
+const { Op } = require('sequelize');
+
 
 const usersController = {
     login: (req, res) => {
@@ -53,6 +53,9 @@ const usersController = {
             })
             .catch((error) => res.send(error))
     },
+    resetPassword: (req, res) => {
+        res.render(path.resolve(__dirname, "../views/users/resetPassword.ejs"))
+    },
     editUser: (req, res) => {
         const { id } = req.params;
         
@@ -65,43 +68,56 @@ const usersController = {
             })
     },
     postEditUser: (req, res) => {
-        const {nombre, email, fecha, contrasena, imagen, id} = req.body;
-
+        const { nombre, email, fecha, contrasena, id } = req.body;
+    
+        let image = req.file ? req.file.filename : null; 
+    
         if (contrasena.length > 0) {
-            db.Users.update({
-                name: nombre,
-                email: email,
-                birthdate: fecha,
-                password: bcrypt.hashSync(contrasena,10),
-                image: imagen
-            }, {
-                where: {id: id}
-            })
+            db.Users.findByPk(id)
+                .then((usuario) => {
+                    if (!image) {
+                        image = usuario.image;
+                    }
+    
+                    return usuario.update({
+                        name: nombre,
+                        email: email,
+                        birthdate: fecha,
+                        password: bcrypt.hashSync(contrasena, 10),
+                        image: image
+                    });
+                })
                 .then((data) => {
-                    res.redirect("/home");
+                    res.redirect("/home" + id);
                 })
                 .catch((error) => {
-                    console.log(error)
-                    res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
-                })
+                    console.log(error);
+                    res.status(500).json({ message: `Error al editar el usuario: ${error.message}` });
+                });
         } else {
-            db.Users.update({
-                name: nombre,
-                email: email,
-                birthdate: fecha,
-                image: imagen
-            }, {
-                where: {id: id}
-            })
+            db.Users.findByPk(id)
+                .then((usuario) => {
+                    if (!image) {
+                        image = usuario.image;
+                    }
+    
+                    return usuario.update({
+                        name: nombre,
+                        email: email,
+                        birthdate: fecha,
+                        image: image
+                    });
+                })
                 .then((data) => {
                     res.redirect("/home");
                 })
                 .catch((error) => {
-                    console.log(error)
-                    res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
-                })
+                    console.log(error);
+                    res.status(500).json({ message: `Error al editar el usuario: ${error.message}` });
+                });
         }
     },
+    
     logout: (req, res) => {
         req.session.destroy(function (err) {
             if (err) {
@@ -111,17 +127,27 @@ const usersController = {
             }
         });
     },
-    delete: (req, res) => {
-        const { id } = req.params;
 
-        db.Users.destroy({ where: { id } })
-            .then(() => {
-                res.redirect("/home")
-            })
-            .catch((error) => {
-                res.send('Error al eliminar registro:', error);
-            });
+    delete: (req, res) => {
+      const { id } = req.params;
+    
+      db.Carts.findAll({ where: { user_id: id } })
+        .then(carts => {
+          const cartIds = carts.map(cart => cart.id);
+    
+          return db.Cart_products.destroy({
+            where: { cart_id: { [Op.in]: cartIds } }
+          }).then(() => db.Carts.destroy({ where: { user_id: id } }));
+        })
+        .then(() => db.Users.destroy({ where: { id } }))
+        .then(() => {
+          res.redirect("/home");
+        })
+        .catch((error) => {
+          res.send("Error al eliminar registro: " + error);
+        });
     }
+
 }
 
  module.exports = usersController

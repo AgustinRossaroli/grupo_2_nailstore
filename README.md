@@ -23,3 +23,5 @@ Interesante como el header se acopla a la pagina de inicio.
 
 Integrantes del proyecto:
 Agustin Rossaroli, Yhoxin Rossell, Sebastian Ramos, Lu Valcke y Candela Elizondo.
+
+REACT: https://github.com/AgustinRossaroli/react

@@ -28,6 +28,12 @@
                     <h5>Categoría: </h5>
                     <p class="p"><%= detalle.category%>.</p>
                 </div>
+                <form id="cartPlus" action="/carrito/<%=detalle.id%>" method="post">
+                    <button type="submit"><i class="fa-solid fa-cart-plus"></i>
+                        <div>Agregar al Carrito</div></button>
+                </form>
+            </div>
+            <div class="volver-box">
                 <a id="boton" href="<%= referer %>">Volver</a>
             </div>
         </article>

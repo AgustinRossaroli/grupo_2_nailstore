@@ -14,9 +14,25 @@
     <%- include('./partials/header.ejs') %>
         <main>
             <div id="banner">
-            <img src="/images/nailBanner.jpg" alt="baner">
+                <video src="/images/video.mp4" class="video" muted autoplay loop>
+                    Tu navegador no soporta el elemento de video.
+                  </video>
             </div>
-            <h1>OFERTAS</h1>
+            <div class="promocion" id="entregas">
+                Entregas gratis en zona norte y CABA
+                <p>En compras superiores a $ 4000</p>
+              </div>
+            
+              <div class="promocion" id="descuento">
+                15% OFF
+                <p>Por transferencia</p>
+              </div>
+            
+              <div class="promocion" id="retira">
+                Retirá sin cargo
+                <p>Por Nailstore</p>
+              </div>
+            <h1>MÁS VENDIDOS</h1>
             <div class="main">
                 <section class="product-section">
                     <% for (let i=1; i <=4; i++) { %>
@@ -34,13 +50,12 @@
                                         <%= allProducts[i-1].name %>
                                     </div>
                                 </a>
-                                <i class="fa-solid fa-cart-plus" id="cartPlus"></i>
                             </div>
                         </div>
                         <% } %>
                 </section>
             </div>
-            <h1>BASADO EN TUS BÚSQUEDAS</h1>
+            <h1>OTROS QUE TE PUEDEN INTERESAR   </h1>
             <section class="product-section-personal">
                 <% for (let i=3; i < 7; i++) { %>
                     <div class="product-box" id="product<%=i+10%>">
@@ -57,7 +72,6 @@
                                     <%= allProducts[i-1].name %>
                                 </div>
                             </a>
-                            <i class="fa-solid fa-cart-plus" id="cartPlus"></i>
                         </div>
                     </div>
                     <% } %>

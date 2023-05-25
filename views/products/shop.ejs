@@ -15,12 +15,16 @@
 <body>
     <%- include('../partials/header.ejs') %>
         <main>
+            <div class="arriba">
             <div class="main-title">
                 Nuestra Tienda
             </div>
+            <% if (user.admin == 1) { %>
             <a href="/shop/product-creator" class="create-buton"><i class="fa-solid fa-plus"></i> Crea tu Producto</a>
+            <%}%>
+            </div>
             <% for(let i=0; i< allProducts.length; i++) {%>
-                <ul>
+                <ul class="ulArticles">
                     <li>
                         <article class="articulo">
                             <div class="imgBox">
@@ -47,12 +51,14 @@
                                     </div>
                                 </a>
                             </div>
+                            <% if (user.admin == 1) { %>
                             <div class="admin">
                                 <a href="/editar/<%=allProducts[i].id%>" class="editar"><p class="editText">EDITAR</p></a>
                                 <form class="borrar" action="/delete/<%=allProducts[i].id%>" method="post">
                                     <button type="submit" class="borrarText"><p class="editText">BORRAR</p></button>
                                 </form>
                             </div>
+                            <%}%>
                         </article>
                     </li>
                 </ul>

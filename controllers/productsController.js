@@ -4,6 +4,9 @@ const path = require("path");
 const fs = require("fs");
 const db = require("../database/models");
 const { log } = require("console");
+const { isDataView } = require("util/types");
+const { Op } = require('sequelize');
+
 
 const productsController = {
     shop: (req, res) => {
@@ -13,11 +16,63 @@ const productsController = {
             })
     },
     carrito: (req, res) => {
-        db.Products.findAll().then((products) => {
-            res.render(path.resolve(__dirname, "../views/products/carrito.ejs"), {
-              "allProducts": products,
+        db.Carts.findAll({
+            where: { user_id: res.locals.user.id },
+            include: [{ model: db.Products, as: "products", required: true }],
+            raw: true
+        })
+            .then(cart => {
+                console.log(cart)
+                if (!cart) {
+                    res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
+                        message: "Tu carrito está vacío."
+                    });
+                } else {
+                    const products = cart.map(cart => {
+                        return {
+                            image: cart["products.image"],
+                            name: cart["products.name"],
+                            price: cart["products.price"],
+                            id: cart["products.id"]
+                        }
+                    })
+                    console.log(products)
+                    res.render(path.join(__dirname, "../views/products/carrito.ejs"), {
+                        allProducts: products
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
             });
-          });    
+    },
+    agregarCarrito: (req, res) => {
+        const { id } = req.params;
+        let user_id = res.locals.user.id;
+
+
+        db.Carts.create({ user_id })
+            .then(data => {
+
+                let product_id = id;
+                let cart_id = data.id;
+
+                db.Cart_products.create({
+                    cart_id,
+                    product_id,
+                })
+                    .then(() => {
+                        res.redirect("/carrito")
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        res.status(500).json({ message: `Error al agregar el producto: ${error.message}` });
+                    });
+            })
+            .catch(error => {
+                console.log(error);
+                res.status(500).json({ message: `Error al agregar el producto: ${error.message}` });
+            });
     },
     productCreator: (req, res) => {
         res.render(path.resolve(__dirname, "../views/products/productCreator"), { "referer": req.headers.referer });
@@ -58,24 +113,35 @@ const productsController = {
             });
     },
     confirmarEdicion: (req, res) => {
-        const { nombre, descripcion, categoria, precio, imagen } = req.body;
-
-        db.Products.update({
-            name: nombre,
-            description: descripcion,
-            category: categoria,
-            price: precio
-        }, {
-            where: { id: req.body.id }
-        })
-            .then((data) => {
-                res.redirect("/shop")
+        const { nombre, descripcion, categoria, precio } = req.body;
+    
+        let image = req.file ? req.file.filename : null; 
+    
+        db.Products.findByPk(req.body.id)
+            .then((producto) => {
+                if (!image) {
+                    image = producto.image;
+                }
+                
+                return producto.update({
+                    name: nombre,
+                    description: descripcion,
+                    category: categoria,
+                    price: precio,
+                    image
+                });
             })
-            .catch(error => {
+            .then((data) => {
+                res.redirect("/shop");
+            })
+            .catch((error) => {
                 console.log(error);
-                return res.status(500).json({ message: `Error al editar el producto: ${error.message}` });
+                return res
+                    .status(500)
+                    .json({ message: `Error al editar el producto: ${error.message}` });
             });
     },
+    
     detalle: (req, res) => {
         const { id } = req.params;
 
@@ -97,9 +163,37 @@ const productsController = {
             .catch((error) => {
                 res.send('Error al eliminar registro:', error);
             });
+    },
+    deleteCart: (req, res) => {
+        const { id } = req.params;
+        const userEmail = req.session.email;
+
+        db.Users.findOne({ where: { email: userEmail } })
+            .then(user => {
+                const userId = user.id;
+
+                db.Carts.findAll({ where: { user_id: userId } })
+                    .then(carts => {
+                        const cartIds = carts.map(cart => cart.id);
+
+                        return db.Cart_products.destroy({
+                            where: {
+                                product_id: id,
+                                cart_id: { [Op.in]: cartIds }
+                            }
+                        });
+                    })
+                    .then(() => {
+                        res.redirect("/carrito");
+                    })
+                })
+        //   .catch((error) => {
+        //     res.send("Error al eliminar registro: " + error);
+        //   });
     }
 };
 
 module.exports = {
     productsController
 };
+

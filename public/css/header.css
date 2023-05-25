@@ -22,28 +22,36 @@ header {
     flex-direction: row;
     align-items: center;
     border: solid 1px black;
-    height: fit-content;
-    width: 20%;
+    height: max-content;
+    width: fit-content;
 }
 .text-search-box{
     padding: 5px;
-    width: 100%;
 }
 #text-search{
     border: none;
     background-color: #FFEBEE;
+    width: 82%;
+    height: max-content;
 }
 #text-search:focus{
     outline: none;
 }
 .search-icon{
-    padding: 5px;
+    padding: 9px;
+    background-color: #FFEBEE;
+    border: none;
+    border-radius: 15px;
+}
+.search-icon:hover {
+    background-color: #f5e1e4;
 }
 .logo{
     width: fit-content;
     font-family: 'Aboreto', cursive;
     font-size: 40px;
     transition: transform 0.1s ease-in-out;
+    margin-right: 5rem;
 }
 .logo:hover {
     transform: scale(1.2);
@@ -62,6 +70,7 @@ img{
     justify-content: space-around;
     font-family: 'Aboreto', cursive;
     font-size: 14px;
+    align-items: center;
 }
 a{
     text-decoration: none;
@@ -98,6 +107,8 @@ a{
     margin: auto;
     color: #000;
     transition: transform 0.1s ease-in-out;
+    display: flex;
+    align-items: center;
 }
 .userProfile {
     display: flex;
@@ -108,38 +119,66 @@ a{
 .list-option:hover {
     transform: scale(1.2);
 }
-
-@media (max-width: 1200px) {
-
-.navMenu {
-    display: block;
+.userImage:hover {
+    border: 1px solid white;
 }
-.list-menu {
+.son {
     display: flex;
-    justify-content: center;
-    
 }
-.list-Omenu {
-    margin: 30px 15% 0 15%;
-}
-.list-OLmenu {
-    margin: 30px 15% 0 0;
-}
-.list-Omenu a {
-    margin-top: 10px;
-}
-.list-box {
+.menu {
     display: none;
-}
-.userImage {
-    height: 45px;
-    width: 45px;
-    margin-top: 16px;
-}
-header {
-    padding-bottom: 8px;
-}
-.search-box {
-    width: 50%;
-}
+    }
+@media (max-width: 1250px) {
+    .nav-bar-box {
+        flex-direction: column;
+        height: fit-content;
+    }
+    .list-box {
+        margin-top: 1rem;
+    }
+    .son {
+        margin-top: 1rem;
+    }
+    .cart {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .list li {
+        margin: 0 10px 0 10px
+    }
+    .userImage {
+        margin-left: 20px;
+    }
+    #logout {
+        margin-left: 2px;
+    }
+    .menu {
+        display: none;
+    }
+    .userImage {
+        height: 50px;
+        width: 50px;
+        }
+} 
+@media (max-width: 575px) {
+   .son {
+        flex-direction: column;
+        align-items: center;
+   }
+   .logo {
+    margin: 0;
+   }
+   .list-box {
+    display: none;
+   }
+   .cart {
+    display: none;
+   }
+   .menu {
+    display: flex;
+    padding: 5px 10px 5px 10px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    background-color: #f9e0e9;
+    }
 } 

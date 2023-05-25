@@ -9,15 +9,15 @@ body{
     background-size: cover;
 }
 .main-div{
-    height: 66vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    margin: 2rem;
+    height: 68vh;
 }
 .form{
-    width: 40%;
-    height: 90%;
+    width: 50%;
+    height: 100%;
     background-color: #FFF0F5;
     display: flex;
     flex-direction: column;
@@ -25,6 +25,7 @@ body{
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .main-title{
+    text-align: center;
     font-family: 'Aboreto', cursive;
     font-size: 20px;
     font-weight: bolder;
@@ -44,6 +45,8 @@ body{
     margin: 3px;
 }
 input{
+    padding: 5px;
+    width: 100%;
     border: none;
     background-color: #FFF0F5;
 }
@@ -51,6 +54,8 @@ input:focus{
     outline: none;
 }
 textarea{
+    padding: 5px;
+    width: 100%;
     border: none;
     background-color: #FFF0F5;
 }
@@ -62,7 +67,6 @@ textarea:focus{
     width: 90%;
     display: flex;
     justify-content: center;
-    padding: 5px;
 }
 .div-input-check{
     width: 90%;
@@ -72,6 +76,9 @@ textarea:focus{
     font-family: "Roboto", sans-serif;
     font-size: 14px;
 }
+small{
+    color: red;
+}
 .buton-box{
     font-family: "Roboto", sans-serif;
     font-size: 14px;
@@ -80,18 +87,7 @@ textarea:focus{
     margin: 10px;
     box-shadow: 0 0 5px gray;
 }
-footer {
-    background-color: #FFEBEE;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-    padding: 11px;
-    font-family: "Roboto", sans-serif;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-}
 #boton {
-    height: 30px;
-    width: fit-content;
     padding: 7px;
     color: black;
     font-weight: bold;
@@ -99,5 +95,21 @@ footer {
     background-image: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 192, 203, 0.5));
     border-color: black;
     letter-spacing: 1px;
-    margin-top: 15px;
+    margin: 5px;
+}
+@media(max-width: 768px){
+    .form{
+        width: 70%;
+    }
+    .div-box{
+        width: 67%;
+    }
+}
+@media(max-width: 461px){
+    .form{
+        width: 100%;
+    }
+    .div-box{
+        width: 70%;
+    }
 }
